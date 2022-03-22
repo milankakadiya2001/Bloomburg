@@ -126,6 +126,7 @@ const Message = ({navigation}) => {
             <TouchableOpacity style={styles.rowmodal} >
             <Image source={icons.Report} style={styles.modaleicon}/>
               <Text style={styles.modaltext}>Report</Text>
+              console.log("");
             </TouchableOpacity>
           
           </View>
