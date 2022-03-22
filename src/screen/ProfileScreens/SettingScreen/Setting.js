@@ -127,18 +127,17 @@ const Setting = ({navigation}) => {
         <ModelPoup visible={visible}>
           <View style={{alignItems: 'center'}}>
             <View style={styles.modelheader}>
-              <TouchableOpacity>
-                <Text
-                  style={{
-                    fontSize: 20,
-                    fontWeight: '500',
-                    marginVertical: 18,
-                    borderBottomWidth: 10,
-                    borderColor: '#BBBBBB',
-                  }}>
-                  Log out of Marcus Jorden
-                </Text>
-              </TouchableOpacity>
+              <Text
+                style={{
+                  fontSize: 20,
+                  fontWeight: '500',
+                  marginVertical: 18,
+                  borderBottomWidth: 10,
+                  borderColor: '#BBBBBB',
+                }}>
+                Log out of Marcus Jorden
+              </Text>
+
               <View
                 style={{
                   borderBottomWidth: 1,

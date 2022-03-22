@@ -24,6 +24,9 @@ import OtpSetting from './src/screen/ProfileScreens/SettingScreen/OtpSetting';
 import DeleteSetting from './src/screen/ProfileScreens/SettingScreen/DeleteSetting';
 import Deleteacc from './src/screen/ProfileScreens/SettingScreen/Deleteacc';
 import Logout from './src/screen/ProfileScreens/SettingScreen/Logout';
+import Search from './src/screen/HomeScreen/Search';
+import ChatScreen from './src/screen/HomeScreen/ChatScrenn';
+import Message from './src/screen/HomeScreen/Message';
 
 const Stack = createNativeStackNavigator();
 
@@ -48,6 +51,9 @@ export default class App extends React.Component {
           <Stack.Screen name="DeleteSetting" component={DeleteSetting} />
           <Stack.Screen name="Deleteacc" component={Deleteacc} />
           <Stack.Screen name="Logout" component={Logout} />
+          <Stack.Screen name="Search" component={Search} />
+          <Stack.Screen name="Chat" component={ChatScreen} />
+          <Stack.Screen name="Message" component={Message} />
         </Stack.Navigator>
       </NavigationContainer>
     );

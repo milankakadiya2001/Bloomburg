@@ -7,8 +7,7 @@ const countryPicker = (props) => {
   const renderItemView = (item) => {
     console.log('item check ', item)
     return (
-      <View style={{height: 50,}}>
-        
+      <View style={{height: 50,}}>        
         <Text>{item.name}</Text>
       </View>
     );

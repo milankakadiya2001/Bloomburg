@@ -1,22 +1,20 @@
-// const back = require("../assets/Icons/back.png");
-// const bell = require("../assets/Icons/bell.png");
-// const bill = require("../assets/Icons/bill.png");
-// const close = require("../assets/Icons/close.png");
-// const disable_eye = require("../assets/Icons/disable_eye.png");
 const down = require('../assets/icons/down.png');
-const home = require('../assets/icons/HomeIcon.png');
-const trophy = require('../assets/icons/Trophy.png');
+const home = require('../assets/icons/Home.png');
+const homea = require('../assets/icons/Homea.png');
+const trophy = require('../assets/icons/trophya.png');
 const search = require('../assets/icons/Search.png');
 const user = require('../assets/icons/User.png');
 const notification = require('../assets/icons/Notification.png');
+const Notificationgreen = require('../assets/icons/Notificationgreen.png');
 const chat = require('../assets/icons/Chat.png');
+const chatgreen = require('../assets/icons/Chatgreen.png');
 const add = require('../assets/icons/Add.png');
 const menu = require('../assets/icons/Menu.png');
 const edit = require('../assets/icons/edit.png');
 const save = require('../assets/icons/save.png');
-const Like = require('../assets/icons/Like.png');
-const Comment = require('../assets/icons/Comment.png');
-const Share = require('../assets/icons/Share.png');
+const Like = require('../assets/icons/Likea.png');
+const Comment = require('../assets/icons/Commenta.png');
+const Share = require('../assets/icons/Sharea.png');
 const Post = require('../assets/icons/post.jpeg');
 const Right = require('../assets/icons/Right.png');
 const Privacy = require('../assets/icons/Privacy.png');
@@ -25,15 +23,33 @@ const Delete = require('../assets/icons/DeleteNo.png');
 const Logout = require('../assets/icons/Logout.png');
 const success = require('../assets/icons/success.png');
 const x = require('../assets/icons/x.png');
+const B = require('../assets/icons/B.png');
+const r1 = require('../assets/icons/r1.jpg');
+const r2 = require('../assets/icons/r2.jpg');
+const r3 = require('../assets/icons/r3.jpg');
+const Gift = require('../assets/icons/gifta.png');
+const Food = require('../assets/icons/Food.png');
+const elec = require('../assets/icons/electronics.png');
+const paytm = require('../assets/icons/paytm.png');
+const levis = require('../assets/icons/levis.png');
+const tommy = require('../assets/icons/tommy.png');
+const zara = require('../assets/icons/zara.png');
+const award = require('../assets/icons/award.png');
+const Mute = require('../assets/icons/Mute.png');
+const Report = require('../assets/icons/Report.png');
+const Block = require('../assets/icons/Block.png');
 
 export default {
   down,
   home,
+  homea,
   trophy,
   search,
   user,
   notification,
+  Notificationgreen,
   chat,
+  chatgreen,
   add,
   menu,
   edit,
@@ -49,4 +65,19 @@ export default {
   Logout,
   success,
   x,
+  B,
+  r1,
+  r2,
+  r3,
+  Gift,
+  Food,
+  elec,
+  paytm,
+  tommy,
+  levis,
+  zara,
+  award,
+  Mute,
+  Report,
+  Block
 };

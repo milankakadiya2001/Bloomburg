@@ -18,7 +18,7 @@ const LoginScreen = ({navigation}) => {
   const [countryCode, setCountryCode] = useState('+91')
  
   return (
-    <ScrollView showsVerticalScrollIndicator={'false'} bounces={false}>
+    <ScrollView showsVerticalScrollIndicator={false} bounces={false}>
       <View style={styles.container}>
         <TouchableOpacity style={styles.downbtn}></TouchableOpacity>
         <View style={styles.upside}></View>

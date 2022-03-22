@@ -13,7 +13,7 @@ import Stories from './Stories';
 import PostScreen from './PostScreen';
 import NotificationUser from './NotificationUser';
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.topcontainer}>
@@ -21,17 +21,22 @@ const HomeScreen = ({ navigation }) => {
           <Text style={styles.header}>BLOOMBUGG</Text>
         </View>
         <View
-          style={{flexDirection: 'row', flexWrap: 'wrap', marginBottom: 10}}>
-          <TouchableOpacity 
-          onPress={() => navigation.navigate('Notification')}
-          >
+          style={{flexDirection: 'row', flexWrap: 'wrap', marginBottom: 10, alignItems: 'center'}}>
+          <TouchableOpacity onPress={() => navigation.navigate('Search')}>
+            <Image
+              source={icons.search}
+              resizeMode="contain"
+              style={styles.search}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('Notification')}>
             <Image
               source={icons.notification}
               resizeMode="contain"
               style={styles.notify}
             />
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('Chat')}>
             <Image
               source={icons.chat}
               resizeMode="contain"
@@ -70,12 +75,18 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   notify: {
-    height: 30,
-    width: 30,
+    height: 35,
+    width: 35,
   },
   chat: {
-    height: 35,
-    width: 40,
-    marginHorizontal: 10,
+    height: 30,
+    width: 30,
+    marginHorizontal: 15,
   },
+  search:{
+    height: 35,
+    width: 35,
+    marginHorizontal: 5,
+
+  }
 });

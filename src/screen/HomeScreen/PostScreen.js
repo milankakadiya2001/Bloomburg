@@ -99,19 +99,19 @@ const styles = StyleSheet.create({
     marginBottom: 10
   },
   like: {
-    width: 25,
-    height: 25, 
+    width: 29,
+    height: 28, 
     marginLeft: 10
   },
 comment: {
-  width: 25,
-  height: 25,
+  width: 29,
+  height: 28,
   marginLeft: 10
 
 },
 share: {
-  width: 25,
+  width: 29,
   marginLeft: 10,
-  height: 25
+  height: 28
 },
 });

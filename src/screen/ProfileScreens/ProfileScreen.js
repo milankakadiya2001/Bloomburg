@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity, Image, ScrollView} from 'react-native';
 import React from 'react';
 import {COLORS, SIZES} from '../../constants/theme';
 import icons from '../../constants/icons';
@@ -6,7 +6,7 @@ import MyProfileTab from './MyProfileTab';
 
 const ProfileScreen = ({ navigation }) => {
   return (
-    <View>
+    <ScrollView showsVerticalScrollIndicator={false} >
       <View style={styles.topcontainer}>
         <View style={styles.menucontainer}>
           <TouchableOpacity 
@@ -59,8 +59,8 @@ const ProfileScreen = ({ navigation }) => {
           </View>
         </View>
       </View>
-      {/* <MyProfileTab /> */}
-    </View>
+      <MyProfileTab />
+    </ScrollView>
   );
 };
 
@@ -75,6 +75,7 @@ const styles = StyleSheet.create({
     shadowOffset: {width: 0, height: 5},
     shadowOpacity: 0.3,
     shadowRadius: 5,
+    marginBottom: 18
   },
   menucontainer: {
     flexDirection: 'row',
@@ -113,8 +114,8 @@ const styles = StyleSheet.create({
   },
   editcontainer: {
     backgroundColor: '#2C5F2D',
-    width: 31,
-    height: 31,
+    width: 30,
+    height: 30,
     alignItems: 'center',
     borderRadius: 15,
     justifyContent: 'center',

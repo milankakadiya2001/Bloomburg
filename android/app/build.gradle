@@ -126,9 +126,9 @@ def enableHermes = project.ext.react.get("enableHermes", false);
 def nativeArchitectures = project.getProperties().get("reactNativeDebugArchitectures")
 
 android {
-    ndkVersion rootProject.ext.ndkVersion
+    ndkVersion ndkVersion
 
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    compileSdkVersion compileSdkVersion
 
     defaultConfig {
         applicationId "com.bloombugnew"
