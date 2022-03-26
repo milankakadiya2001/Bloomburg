@@ -52,7 +52,7 @@ export default class App extends React.Component {
           <Stack.Screen name="Deleteacc" component={Deleteacc} />
           <Stack.Screen name="Logout" component={Logout} />
           <Stack.Screen name="Search" component={Search} />
-          <Stack.Screen name="Chat" component={ChatScreen} />
+          <Stack.Screen name="ChatS" component={ChatScreen} />
           <Stack.Screen name="Message" component={Message} />
         </Stack.Navigator>
       </NavigationContainer>

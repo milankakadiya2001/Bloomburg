@@ -36,7 +36,7 @@ const HomeScreen = ({navigation}) => {
               style={styles.notify}
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Chat')}>
+          <TouchableOpacity onPress={() => navigation.navigate('ChatS')}>
             <Image
               source={icons.chat}
               resizeMode="contain"
