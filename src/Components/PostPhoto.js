@@ -26,6 +26,7 @@ const PostPhoto = () => {
           horizontal={false}
           numColumns={'3'}
           keyExtractor={(item, index) => index.toString}
+          style={{height: '100%'}}
         />
       </View>
     );

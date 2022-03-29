@@ -7,7 +7,7 @@ import {
   Dimensions,
   ScrollView,
 } from 'react-native';
-import React from 'react';
+import React, { useEffect } from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import icons from '../../constants/icons';
@@ -15,9 +15,25 @@ import {COLORS, SIZES} from '../../constants/theme';
 const {height, width} = Dimensions.get('window');
 
 const NotificationUser = ({navigation}) => {
-  return (
-    <View style={styles.container}>
-      <View style={styles.topcontainer}>
+  useEffect(() => {
+    navigation.setOptions({
+      headerStyle: {backgroundColor: COLORS.primary,
+        borderBottomRightRadius: 25,
+        borderBottomLeftRadius: 25,
+        borderWidth: 5,
+        borderColor: 'black',
+        shadowColor: 'black',
+        shadowOffset: {width: 0, height: 5},
+        shadowOpacity: 0.3,
+        shadowRadius: 5,
+      },
+      title: 'Notification',
+      headerTitleStyle: {
+        fontSize: SIZES.h3,
+        fontWeight: '700',
+        letterSpacing: 1,
+      },
+      headerLeft: () => (
         <TouchableOpacity onPress={() => navigation.navigate('Home')}>
           <Image
             source={icons.down}
@@ -25,32 +41,13 @@ const NotificationUser = ({navigation}) => {
             style={styles.downbtn}
           />
         </TouchableOpacity>
-        <Text style={styles.header}>Notification</Text>
+      ),
+    });
+  });
 
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'flex-end',
-            alignItems: 'center',
-            left: width / 5,
-          }}>
-          <TouchableOpacity>
-            <Image
-              source={icons.Notificationgreen}
-              resizeMode="contain"
-              style={styles.notify}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('ChatS')}>
-            <Image
-              source={icons.chat}
-              resizeMode="contain"
-              style={styles.chat}
-            />
-          </TouchableOpacity>
-        </View>
-      </View>
-
+  return (
+    <View style={styles.container}>
+     
       <ScrollView>
         <View style={styles.recent}>
           <Image
@@ -200,8 +197,8 @@ const styles = StyleSheet.create({
   downbtn: {
     height: 25,
     width: 22,
-    marginVertical: 20,
-    marginHorizontal: 15,
+    marginLeft: 5,
+    marginRight: 15,
   },
   header: {
     fontSize: SIZES.h3,

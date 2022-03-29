@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
-import React from 'react';
+import React, { useEffect } from 'react';
 import {COLORS, SIZES} from '../../constants/theme';
 import icons from '../../constants/icons';
 import Stories from './Stories';
@@ -14,13 +14,27 @@ import PostScreen from './PostScreen';
 import NotificationUser from './NotificationUser';
 
 const HomeScreen = ({navigation}) => {
-  return (
-    <View style={styles.container}>
-      <View style={styles.topcontainer}>
-        <View style={{marginBottom: 10}}>
-          <Text style={styles.header}>BLOOMBUGG</Text>
+  
+  useEffect (() => {
+      navigation.setOptions({
+        headerStyle: {backgroundColor: COLORS.primary,
+          borderBottomRightRadius: 25,
+          borderBottomLeftRadius: 25,
+          shadowColor: 'black',
+          shadowOffset: {width: 0, height: 5},
+          shadowOpacity: 0.3,
+          shadowRadius: 5,
+        },
+        title: '',
+        headerLeft: () => (
+          <View style={{marginLeft: 15}}>
+           <View >
+          <Image source={icons.BloombuggLogo}  style={styles.header}  />
         </View>
-        <View
+          </View>
+        ),
+        headerRight: () => (
+          <View
           style={{flexDirection: 'row', flexWrap: 'wrap', marginBottom: 10, alignItems: 'center'}}>
           <TouchableOpacity onPress={() => navigation.navigate('Search')}>
             <Image
@@ -36,7 +50,7 @@ const HomeScreen = ({navigation}) => {
               style={styles.notify}
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('ChatS')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Chats')}>
             <Image
               source={icons.chat}
               resizeMode="contain"
@@ -44,7 +58,12 @@ const HomeScreen = ({navigation}) => {
             />
           </TouchableOpacity>
         </View>
-      </View>
+          )
+      })
+  })
+
+  return (
+    <View style={styles.container}>
       <ScrollView>
         <Stories />
         <PostScreen />
@@ -56,37 +75,23 @@ const HomeScreen = ({navigation}) => {
 export default HomeScreen;
 
 const styles = StyleSheet.create({
-  topcontainer: {
-    flexDirection: 'row',
-    backgroundColor: COLORS.primary,
-    paddingTop: 30,
-    borderBottomRightRadius: 25,
-    borderBottomLeftRadius: 25,
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    shadowColor: 'black',
-    shadowOffset: {width: 0, height: 5},
-    shadowOpacity: 0.3,
-    shadowRadius: 5,
-  },
   header: {
-    fontSize: SIZES.h2,
-    marginHorizontal: 20,
-    marginVertical: 10,
+    width: 195, 
+    height: 33
   },
   notify: {
-    height: 35,
-    width: 35,
-  },
-  chat: {
     height: 30,
     width: 30,
+  },
+  chat: {
+    height: 25,
+    width: 25,
     marginHorizontal: 15,
   },
   search:{
-    height: 35,
-    width: 35,
-    marginHorizontal: 5,
+    height: 30,
+    width: 30,
+    marginHorizontal: 9,
 
   }
 });

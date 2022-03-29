@@ -19,51 +19,98 @@ const ProfileBlooms = () => {
       <View style={styles.blomcontainer}>
         <Text style={styles.blom}>Total Blooms</Text>
         <View style={styles.underline}></View>
+        <View style={{marginTop: 15}}></View>
         <View>
           <View style={styles.slider}>
+            <Text style={styles.font}>Energy</Text>
+            <View style={[styles.empty, {width: '73%'}]}>
+              <View style={[styles.fillPart, {width: '50%'}]}>
+                <View style={styles.challangeNo}>
+                  <Text style={styles.challangeText}>46</Text>
+                </View>
+              </View>
+            </View>
+          </View>
+          <View style={styles.slider}>
             <Text style={styles.font}>Fuel</Text>
-            <SliderLine />
+            <View style={[styles.empty, {width: '73%'}]}>
+              <View style={[styles.fillPart, {width: '90%'}]}>
+                <View style={styles.challangeNo}>
+                  <Text style={styles.challangeText}>96</Text>
+                </View>
+              </View>
+            </View>
           </View>
           <View style={styles.slider}>
             <Text style={styles.font}>Kids</Text>
-            <SliderLine />
+            <View style={[styles.empty, {width: '73%'}]}>
+              <View style={[styles.fillPart, {width: '5%'}]}>
+                <View style={styles.challangeNo}>
+                  <Text style={styles.challangeText}>5</Text>
+                </View>
+              </View>
+            </View>
           </View>
           <View style={styles.slider}>
             <Text style={styles.font}>Home</Text>
-            <SliderLine />
+            <View style={[styles.empty, {width: '73%'}]}>
+              <View style={[styles.fillPart, {width: '35%'}]}>
+                <View style={styles.challangeNo}>
+                  <Text style={styles.challangeText}>35</Text>
+                </View>
+              </View>
+            </View>
           </View>
           <View style={styles.slider}>
             <Text style={styles.font}>Trees</Text>
-            <SliderLine />
+            <View style={[styles.empty, {width: '73%'}]}>
+              <View style={[styles.fillPart, {width: '85%'}]}>
+                <View style={styles.challangeNo}>
+                  <Text style={styles.challangeText}>85</Text>
+                </View>
+              </View>
+            </View>
           </View>
           <View style={styles.slider}>
             <Text style={styles.font}>Recycle</Text>
-            <SliderLine />
+            <View style={[styles.empty, {width: '73%'}]}>
+              <View style={[styles.fillPart, {width: '75%'}]}>
+                <View style={styles.challangeNo}>
+                  <Text style={styles.challangeText}>75</Text>
+                </View>
+              </View>
+            </View>
           </View>
           <View style={styles.slider}>
-            <Text style={styles.font}>Water </Text>
-            <SliderLine />
+            <Text style={styles.font}>Water</Text>
+            <View style={[styles.empty, {width: '73%'}]}>
+              <View style={[styles.fillPart, {width: '20%'}]}>
+                <View style={styles.challangeNo}>
+                  <Text style={styles.challangeText}>20</Text>
+                </View>
+              </View>
+            </View>
           </View>
         </View>
       </View>
       <View>
         <View style={styles.boxcontainer}>
           <View style={styles.box}>
-            <Text style={{color: 'blue', fontSize: 18}}>10</Text>
+            <Text style={styles.gasNo}>10</Text>
             <Text style={{fontSize: 16}}>Kg CO2 Saved</Text>
           </View>
           <View style={styles.box}>
-            <Text style={{color: 'blue', fontSize: 18}}>10</Text>
+            <Text style={styles.gasNo}>10</Text>
             <Text style={{fontSize: 16}}>Kg CO2 Saved</Text>
           </View>
         </View>
         <View style={styles.boxcontainer}>
           <View style={styles.box}>
-            <Text style={{color: 'blue', fontSize: 18}}>10</Text>
+            <Text style={styles.gasNo}>10</Text>
             <Text style={{fontSize: 16}}>Kg CO2 Saved</Text>
           </View>
           <View style={styles.box}>
-            <Text style={{color: 'blue', fontSize: 18}}>10</Text>
+            <Text style={styles.gasNo}>10</Text>
             <Text style={{fontSize: 16}}>Kg CO2 Saved</Text>
           </View>
         </View>
@@ -121,6 +168,30 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingVertical: 1,
     alignItems: 'center',
+    height: 50,
+  },
+  fillPart: {
+    backgroundColor: '#2C5F2D',
+    height: 4,
+    position: 'relative',
+  },
+  empty: {
+    backgroundColor: '#E6E6E6',
+    height: 4,
+  },
+  challangeNo: {
+    height: 23,
+    width: 23,
+    backgroundColor: '#FFC901',
+    position: 'absolute',
+    borderRadius: 20,
+    right: -10,
+    top: -25,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  challangeText: {
+    fontSize: 12,
   },
   font: {
     fontSize: 15,
@@ -159,18 +230,26 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'black',
     alignItems: 'center',
-    borderRadius: 10,    
+    borderRadius: 10,
     marginHorizontal: 10,
     width: 110,
     height: 110,
     justifyContent: 'center',
   },
   awardno: {
-    color: 'blue',
+    color: '#FFC901',
     fontSize: 18,
     marginHorizontal: 5,
+    fontWeight: '600',
+    marginTop: 10,
   },
   awardfont: {
     fontSize: 16,
+  },
+  gasNo: {
+    color: '#FFC901',
+    fontSize: 18,
+    fontWeight: '600',
+    marginBottom: 5,
   },
 });

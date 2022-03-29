@@ -5,8 +5,11 @@ import {
   TouchableOpacity,
   Image,
   Modal,
+  TouchableWithoutFeedback,
+  Keyboard,
+  KeyboardAvoidingView,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {COLORS, SIZES} from '../../../constants/theme';
 import icons from '../../../constants/icons';
 import OTPInputView from '@twotalltotems/react-native-otp-input';
@@ -14,8 +17,8 @@ import OTPInputView from '@twotalltotems/react-native-otp-input';
 const ModelPoup = ({visible, children}) => {
   const [showModel, setShowModel] = React.useState(visible);
   React.useEffect(() => {
-      toggleModel();
-  },[visible])
+    toggleModel();
+  }, [visible]);
   const toggleModel = () => {
     if (visible) {
       setShowModel(true);
@@ -31,94 +34,109 @@ const ModelPoup = ({visible, children}) => {
     </Modal>
   );
 };
+
 const Deleteacc = ({navigation}) => {
   const [visible, setVisible] = React.useState(false);
-  return (
-    <View>
-      <View style={styles.topcontainer}>
-        <TouchableOpacity onPress={() => navigation.navigate('DeleteSetting')}>
-          <Image
-            source={icons.down}
-            resizeMode="contain"
-            style={styles.downbtn}
-          />
-        </TouchableOpacity>
-        <Text style={styles.header}>Delete Accout</Text>
-        <View></View>
-      </View>
-      <View style={styles.seccontiner}>
-        <View style={styles.titlecontiner}>
-          <Text style={styles.title}>Verify Phone</Text>
-          <Text style={styles.sectitle}>Code is sent to +91 12345 98466</Text>
-        </View>
-      </View>
-      <View style={styles.inputcontiner}>
-        <OTPInputView
-          pinCount={4}
-          placeholderCharacter="*"
-          placeholderTextColor="#00000099"
-          autoFocusOnLoad
-          codeInputFieldStyle={styles.underlineStyleBase}
-          // codeInputHighlightStyle={styles.underlineStyleHighLighted}
-        />
-      </View>
-      <View style={styles.codecontainer}>
-        <Text style={styles.code}>Didn’t recieve code?</Text>
-        <TouchableOpacity>
-          <Text style={styles.againcode}>Request again</Text>
-        </TouchableOpacity>
-      </View>
 
-      <View style={{alignItems: 'center'}}>
-        <ModelPoup visible={visible}>
-          <View style={{alignItems: 'center'}}>
-            <View style={styles.modelheader}>
-              <TouchableOpacity onPress={() => setVisible(false)} ><Image source={icons.x} style={{height: 25, width: 25}} /></TouchableOpacity> 
+  useEffect(() => {
+    navigation.setOptions({
+      headerStyle: {
+        borderBottomRightRadius: 25,
+        borderBottomLeftRadius: 25,
+        shadowColor: 'black',
+        shadowOffset: {width: 0, height: 5},
+        shadowOpacity: 0.3,
+        shadowRadius: 5,
+        backgroundColor: COLORS.primary,
+      },
+      title: 'Delete Account',
+      headerTitleStyle: {Color: 'black', fontWeight: '700'},
+      headerTitleAlign: 'center',
+      headerLeft: () => (
+        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Image
+              source={icons.down}
+              resizeMode="contain"
+              style={styles.downbtn}
+            />
+          </TouchableOpacity>
+        </View>
+      ),
+    });
+  });
+
+  return (
+    <KeyboardAvoidingView>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={{height: '100%'}}>
+          <View>
+            <View style={styles.seccontiner}>
+              <View style={styles.titlecontiner}>
+                <Text style={styles.title}>Verify Phone</Text>
+                <Text style={styles.sectitle}>
+                  Code is sent to +91 12345 98466
+                </Text>
+              </View>
+            </View>
+            <View style={styles.inputcontiner}>
+              <OTPInputView
+                pinCount={4}
+                placeholderCharacter="*"
+                placeholderTextColor="#00000099"
+                autoFocusOnLoad
+                codeInputFieldStyle={styles.underlineStyleBase}
+                // codeInputHighlightStyle={styles.underlineStyleHighLighted}
+              />
+            </View>
+            <View style={styles.codecontainer}>
+              <Text style={styles.code}>Didn’t recieve code?</Text>
+              <TouchableOpacity>
+                <Text style={styles.againcode}>Request again</Text>
+              </TouchableOpacity>
+            </View>
+
+            <View style={{alignItems: 'center'}}>
+              <ModelPoup visible={visible}>
+                <View style={{alignItems: 'center'}}>
+                  <View style={styles.modelheader}>
+                    <TouchableOpacity onPress={() => setVisible(false)}>
+                      <Image source={icons.x} style={{height: 25, width: 25}} />
+                    </TouchableOpacity>
+                  </View>
+                </View>
+                <View style={{justifyContent: 'center', alignItems: 'center'}}>
+                  <Image
+                    source={icons.success}
+                    style={{height: 150, width: 150, marginVertical: 25}}
+                  />
+                </View>
+
+                <Text style={{fontSize: 20, textAlign: 'center'}}>
+                  Successfully deleted your account
+                </Text>
+              </ModelPoup>
+              <TouchableOpacity
+                style={styles.sendcontainer}
+                onPress={() => setVisible(true)}>
+                <Text style={styles.send}>VERIFY</Text>
+              </TouchableOpacity>
             </View>
           </View>
-          <View style={{justifyContent: 'center', alignItems: 'center'}}>
-            <Image
-              source={icons.success}
-              style={{height: 150, width: 150, marginVertical: 25}}
-            />
-          </View>
-
-          <Text style={{fontSize: 20, textAlign: 'center'}}>
-            Successfully deleted your account
-          </Text>
-        </ModelPoup>
-        <TouchableOpacity
-          style={styles.sendcontainer}
-          onPress={() => setVisible(true)}>
-          <Text style={styles.send}>VERIFY</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+        </View>
+      </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
   );
 };
 
 export default Deleteacc;
 
 const styles = StyleSheet.create({
-  topcontainer: {
-    flexDirection: 'row',
-    backgroundColor: COLORS.primary,
-    paddingTop: 30,
-    borderBottomRightRadius: 25,
-    borderBottomLeftRadius: 25,
-    alignItems: 'center',
-    shadowColor: 'black',
-    shadowOffset: {width: 0, height: 5},
-    shadowOpacity: 0.3,
-    shadowRadius: 5,
-    justifyContent: 'space-between',
-    marginBottom: 25,
-  },
   downbtn: {
     height: 25,
     width: 22,
-    marginVertical: 20,
-    marginHorizontal: 15,
+    marginLeft: 5,
+    marginRight: 15,
   },
   header: {
     fontSize: SIZES.h3,

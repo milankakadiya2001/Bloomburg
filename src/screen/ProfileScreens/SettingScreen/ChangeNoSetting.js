@@ -5,99 +5,115 @@ import {
   TouchableOpacity,
   Image,
   TextInput,
+  KeyboardAvoidingView,
+  TouchableWithoutFeedback,
+  Keyboard,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {COLORS, SIZES} from '../../../constants/theme';
 import icons from '../../../constants/icons';
 
 const ChangeNoSetting = ({navigation}) => {
-  
+  useEffect(() => {
+    navigation.setOptions({
+      headerStyle: {
+        borderBottomRightRadius: 25,
+        borderBottomLeftRadius: 25,
+        shadowColor: 'black',
+        shadowOffset: {width: 0, height: 5},
+        shadowOpacity: 0.3,
+        shadowRadius: 5,
+        backgroundColor: COLORS.primary,
+      },
+      title: 'Change Number',
+      headerTitleStyle: {Color: 'black', fontWeight: '700'},
+      headerTitleAlign: 'center',
+      headerLeft: () => (
+        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Image
+              source={icons.down}
+              resizeMode="contain"
+              style={styles.downbtn}
+            />
+          </TouchableOpacity>
+        </View>
+      ),
+    });
+  });
+
   return (
-    <View>
-      <View style={styles.topcontainer}>
-        <TouchableOpacity onPress={() => navigation.navigate('Setting')}>
-          <Image
-            source={icons.down}
-            resizeMode="contain"
-            style={styles.downbtn}
-          />
-        </TouchableOpacity>
-        <Text style={styles.header}>Change Number</Text>
-        <View></View>
-      </View>
-      <View>
-        <View style={styles.container}>
-          <View style={styles.secondcontainer}>
-            <Text style={styles.maintext}>
-              Old Mobile Number and Country Code
-            </Text>
-            <View style={styles.inputcontainer}>
-              <Text style={styles.countrycode}>+91</Text>
-              <Text
-                style={{
-                  fontSize: SIZES.h2,
-                  color: '#838383',
-                  marginHorizontal: 10,
-                  marginBottom: 12,
-                }}>
-                |
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <KeyboardAvoidingView>
+        <View style={{height: '100%'}} >
+          <View style={styles.container}>
+            <View style={styles.secondcontainer}>
+              <Text style={styles.maintext}>
+                Old Mobile Number and Country Code
               </Text>
-              <TextInput style={styles.inputphone} placeholder="Phone Number" />
+              <View style={styles.inputcontainer}>
+                <Text style={styles.countrycode}>+91</Text>
+                <Text
+                  style={{
+                    fontSize: SIZES.h2,
+                    color: '#838383',
+                    marginHorizontal: 10,
+                    marginBottom: 12,
+                  }}>
+                  |
+                </Text>
+                <TextInput
+                  style={styles.inputphone}
+                  placeholder="Phone Number"
+                  keyboardType='numeric'
+                />
+              </View>
             </View>
-          </View>
-          <View style={styles.secondcontainer}>
-            <Text style={styles.maintext}>
-              New Mobile Number and Country Code
-            </Text>
-            <View style={styles.inputcontainer}>
-              <Text style={styles.countrycode}>+91</Text>
-              <Text
-                style={{
-                  fontSize: SIZES.h2,
-                  color: '#838383',
-                  marginHorizontal: 10,
-                  marginBottom: 12,
-                }}>
-                |
+            <View style={styles.secondcontainer}>
+              <Text style={styles.maintext}>
+                New Mobile Number and Country Code
               </Text>
-              <TextInput style={styles.inputphone} placeholder="Phone Number" />
+              <View style={styles.inputcontainer}>
+                <Text style={styles.countrycode}>+91</Text>
+                <Text
+                  style={{
+                    fontSize: SIZES.h2,
+                    color: '#838383',
+                    marginHorizontal: 10,
+                    marginBottom: 12,
+                  }}>
+                  |
+                </Text>
+                <TextInput
+                  style={styles.inputphone}
+                  placeholder="Phone Number"
+                  keyboardType='numeric'
+                />
+              </View>
             </View>
-          </View>
-          <View style={{alignItems: 'center'}} >
-          <TouchableOpacity style={styles.sendcontainer}
-               onPress={() => navigation.navigate('OtpSetting')}
-               >
+            <View style={{alignItems: 'center'}}>
+              <TouchableOpacity
+                style={styles.sendcontainer}
+                onPress={() => navigation.navigate('OtpSetting')}>
                 <Text style={styles.send}>SEND OTP</Text>
               </TouchableOpacity>
-        </View></View>
-      </View>
-      <View></View>
-    </View>
+            </View>
+          </View>
+        </View>
+        <View></View>
+      </KeyboardAvoidingView>
+    </TouchableWithoutFeedback>
   );
 };
 
 export default ChangeNoSetting;
 
 const styles = StyleSheet.create({
-  topcontainer: {
-    flexDirection: 'row',
-    backgroundColor: COLORS.primary,
-    paddingTop: 30,
-    borderBottomRightRadius: 25,
-    borderBottomLeftRadius: 25,
-    alignItems: 'center',
-    shadowColor: 'black',
-    shadowOffset: {width: 0, height: 5},
-    shadowOpacity: 0.3,
-    shadowRadius: 5,
-    justifyContent: 'space-between',
-    marginBottom: 25,
-  },
   downbtn: {
     height: 25,
     width: 22,
-    marginVertical: 20,
-    marginHorizontal: 15,
+    marginLeft: 5,
+    marginRight: 15,
   },
   header: {
     fontSize: SIZES.h3,

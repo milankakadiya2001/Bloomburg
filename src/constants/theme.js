@@ -21,7 +21,7 @@ export const COLORS = {
   yellow: '#FFC664',
   lightyellow: '#FFF9EC',
 
-  black: '#1E1F20',
+  black: 'black',
   white: '#FFFFFF',
 
   lightGray: '#FCFBFC',
@@ -62,19 +62,20 @@ export const SIZES = {
 
 export const FONTS = {
   largeTitle: {
-    fontFamily: 'Lato-Regular',
+    fontFamily: 'Quicksand-Regular',
     fontSize: SIZES.largeTitle,
     lineHeight: 55,
+    color: 'black'
   },
-  h1: {fontFamily: 'Lato-Black', fontSize: SIZES.h1, lineHeight: 36},
-  h2: {fontFamily: 'Lato-Bold', fontSize: SIZES.h2, lineHeight: 30},
-  h3: {fontFamily: 'Lato-Bold', fontSize: SIZES.h3, lineHeight: 22},
-  h4: {fontFamily: 'Lato-Bold', fontSize: SIZES.h4, lineHeight: 22},
-  body1: {fontFamily: 'Lato-Regular', fontSize: SIZES.body1, lineHeight: 36},
-  body2: {fontFamily: 'Lato-Regular', fontSize: SIZES.body2, lineHeight: 30},
-  body3: {fontFamily: 'Lato-Regular', fontSize: SIZES.body3, lineHeight: 22},
-  body4: {fontFamily: 'Lato-Regular', fontSize: SIZES.body4, lineHeight: 22},
-  body5: {fontFamily: 'Lato-Regular', fontSize: SIZES.body5, lineHeight: 22},
+  h1: {fontFamily: 'Quicksand-Black', fontSize: SIZES.h1, lineHeight: 36, color: 'black'},
+  h2: {fontFamily: 'Quicksand-Bold', fontSize: SIZES.h2, lineHeight: 30, color: 'black'},
+  h3: {fontFamily: 'Quicksand-Bold', fontSize: SIZES.h3, lineHeight: 22, color: 'black'},
+  h4: {fontFamily: 'Quicksand-Bold', fontSize: SIZES.h4, lineHeight: 22, color: 'black'},
+  body1: {fontFamily: 'Quicksand-Regular', fontSize: SIZES.body1, lineHeight: 36, color: 'black'},
+  body2: {fontFamily: 'Quicksand-Regular', fontSize: SIZES.body2, lineHeight: 30, color: 'black'},
+  body3: {fontFamily: 'Quicksand-Regular', fontSize: SIZES.body3, lineHeight: 22, color: 'black'},
+  body4: {fontFamily: 'Quicksand-Regular', fontSize: SIZES.body4, lineHeight: 22, color: 'black'},
+  body5: {fontFamily: 'Quicksand-Regular', fontSize: SIZES.body5, lineHeight: 22, color: 'black'},
 };
 
 const appTheme = {COLORS, SIZES, FONTS};

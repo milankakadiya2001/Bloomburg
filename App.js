@@ -27,6 +27,7 @@ import Logout from './src/screen/ProfileScreens/SettingScreen/Logout';
 import Search from './src/screen/HomeScreen/Search';
 import ChatScreen from './src/screen/HomeScreen/ChatScrenn';
 import Message from './src/screen/HomeScreen/Message';
+import MessageScreen from './src/screen/HomeScreen/Message';
 
 const Stack = createNativeStackNavigator();
 
@@ -34,10 +35,22 @@ export default class App extends React.Component {
   render() {
     return (
       <NavigationContainer>
-        <Stack.Navigator screenOptions={{headerShown: false}}>
-          <Stack.Screen name="Login" component={LoginScreen} />
-          <Stack.Screen name="Otp" component={OtpScreen} />
-          <Stack.Screen name="Tab" component={TabNavigator} />
+        <Stack.Navigator screenOptions={{headerShown: true}}>
+          <Stack.Screen
+            name="Login"
+            component={LoginScreen}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="Otp"
+            component={OtpScreen}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="Tab"
+            component={TabNavigator}
+            options={{headerShown: false}}
+          />
           <Stack.Screen name="Notification" component={NotificationUser} />
           <Stack.Screen name="ProfileEdit" component={ProfileEdit} />
           <Stack.Screen name="Setting" component={Setting} />
@@ -52,8 +65,8 @@ export default class App extends React.Component {
           <Stack.Screen name="Deleteacc" component={Deleteacc} />
           <Stack.Screen name="Logout" component={Logout} />
           <Stack.Screen name="Search" component={Search} />
-          <Stack.Screen name="ChatS" component={ChatScreen} />
-          <Stack.Screen name="Message" component={Message} />
+          <Stack.Screen name="Chats" component={ChatScreen} />
+          <Stack.Screen name="MessageScreen" component={MessageScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     );

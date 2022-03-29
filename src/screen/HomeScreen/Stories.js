@@ -2,6 +2,7 @@ import {ScrollView, StyleSheet, Text, View, Image} from 'react-native';
 import React from 'react';
 import user from './UserList.json';
 import icons from '../../constants/icons';
+import { COLORS, FONTS } from '../../constants/theme';
 
 const Stories = () => {
   return (
@@ -18,7 +19,7 @@ const Stories = () => {
         </View>
       {user.map((item, index) => (
         <View style={styles.story}>
-            <View style={[styles.storyborder, {borderWidth: 3}]}>
+            <View style={[styles.storyborder, {borderWidth: 2.5}]}>
             <Image source={{uri: item.photo}} style={styles.storyimg} />
             </View>
           <Text style= {styles.username}>{item.name}</Text>
@@ -32,20 +33,22 @@ export default Stories;
 
 const styles = StyleSheet.create({
   storyborder: {
-    borderColor: 'green',    
+    borderColor: '#2C5F2D',    
     borderRadius: 50,
     width: 75,
     height: 75,
     padding: 2,
-    marginHorizontal: 3  
+    marginHorizontal: 3,
   },
   storyimg: {
       width: '100%',
       height: '100%',
-      borderRadius: 50,    
+      borderRadius: 50,  
   },
   username: {
-      textAlign: 'center'
+      textAlign: 'center',
+      color: COLORS.black
+      
   },
   addcontainer: {
     marginTop: 50,

@@ -15,17 +15,14 @@ const PostScreen = () => {
                 <Image source={{uri: item.photo}} style={styles.storyimg} />
               </View>
               <Text style={styles.username}>{item.name}</Text>
-
               <View style={{}}>
                 <TouchableOpacity>
                   <Image source={icons.menu} style={styles.menu} />
                 </TouchableOpacity>
-              </View>
-
-              
+              </View>              
             </View>
             <View style={styles.imgcontainer}>
-                <Image source={icons.Post} style={styles.img} />
+                <Image source={{uri: item.postpic}} resizeMode="cover" style={styles.img} />
               </View>
               <View style={styles.Othercontainer} >
                 <TouchableOpacity>
@@ -54,8 +51,7 @@ export default PostScreen;
 
 const styles = StyleSheet.create({
   postcontainer: {
-    // justifyContent: 'center',
-    // alignItems: 'center',
+    marginBottom: 80
   },
   story: {
     // width: '65%',
@@ -86,11 +82,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginVertical: 10,
     paddingHorizontal: 20, 
-    
   },
   img: {
     width: "100%",
-    borderRadius: 15
+    borderRadius: 15,
+    height: 200
+    
     
   },
   Othercontainer: {

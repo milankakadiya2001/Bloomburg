@@ -6,7 +6,7 @@ import {
   Image,
   Modal,
 } from 'react-native';
-import React from 'react';
+import React, { useEffect } from 'react';
 import {COLORS, SIZES} from '../../../constants/theme';
 import icons from '../../../constants/icons';
 
@@ -22,6 +22,9 @@ const ModelPoup = ({visible, children}) => {
       setShowModel(false);
     }
   };
+
+  
+
   return (
     <Modal transparent visible={showModel}>
       <View style={styles.modalBackGround}>
@@ -33,23 +36,45 @@ const ModelPoup = ({visible, children}) => {
 
 const Setting = ({navigation}) => {
   const [visible, setVisible] = React.useState(false);
+
+  useEffect(() => {
+    navigation.setOptions({
+      headerStyle: {
+        borderBottomRightRadius: 25,
+        borderBottomLeftRadius: 25,
+        shadowColor: 'black',
+        shadowOffset: {width: 0, height: 5},
+        shadowOpacity: 0.3,
+        shadowRadius: 5,
+        backgroundColor: COLORS.primary
+      },
+      title: 'Edit profile',
+      headerTitleStyle: {Color: 'black', fontWeight: '700'},
+      headerTitleAlign: 'center',
+      headerLeft: () => (
+        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Image
+              source={icons.down}
+              resizeMode="contain"
+              style={styles.downbtn}
+            />
+          </TouchableOpacity>          
+        </View>
+      ),
+      headerRight: () => (
+        <TouchableOpacity>
+          <Text style={styles.donebtn}>Done</Text>
+        </TouchableOpacity>
+      ),
+    });
+  })
+
+
+  
   return (
     <View style={styles.container}>
-      <View style={styles.topcontainer}>
-        <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-          <Image
-            source={icons.down}
-            resizeMode="contain"
-            style={styles.downbtn}
-          />
-        </TouchableOpacity>
-        <Text style={styles.header}>Edit profile</Text>
-        <View>
-          <TouchableOpacity>
-            <Text style={styles.donebtn}>Done</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
+      <View style={{margin: 10}} ></View>
       <View style={styles.btncontainer}>
         <View style={styles.primary}>
           <View style={styles.nocontainer}>
@@ -189,8 +214,8 @@ const styles = StyleSheet.create({
   downbtn: {
     height: 25,
     width: 22,
-    marginVertical: 20,
-    marginHorizontal: 15,
+    marginLeft: 5,
+    marginRight: 15,
   },
   header: {
     fontSize: SIZES.h3,
@@ -199,7 +224,7 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
   },
   donebtn: {
-    fontSize: SIZES.h4,
+    fontSize: 16,
     marginRight: 15,
   },
   btncontainer: {
@@ -242,6 +267,7 @@ const styles = StyleSheet.create({
     width: 20,
     tintColor: 'rgba(0, 0, 0, 0.3)',
     marginRight: 22,
+    paddingHorizontal: 20,
   },
   modalBackGround: {
     backgroundColor: 'rgba(0,0,0,0.5)',

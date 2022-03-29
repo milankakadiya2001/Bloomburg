@@ -9,15 +9,14 @@ import {
   TextInput,
   Modal,
 } from 'react-native';
-import React, {Children, useState} from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import React, {Children, useEffect, useState} from 'react';
 import icons from '../../constants/icons';
 import {COLORS, SIZES} from '../../constants/theme';
+import {useRoute} from '@react-navigation/core';
 const {height, width} = Dimensions.get('window');
 
 const ModelPoup = ({visible, children}) => {
-  const [showModel, setShowModel] = React.useState(true);
+  const [showModel, setShowModel] = React.useState(false);
   React.useEffect(() => {
     toggleModel();
   }, [visible]);
@@ -38,43 +37,56 @@ const ModelPoup = ({visible, children}) => {
   );
 };
 
-const Message = ({navigation}) => {
-  const [visible, setVisible] = React.useState(true);
-  return (
-    <View style={styles.container}>
-      <View style={styles.topcontainer}>
-        <TouchableOpacity onPress={() => navigation.navigate('Chat')}>
-          <Image
-            source={icons.down}
-            resizeMode="contain"
-            style={styles.downbtn}
-          />
-        </TouchableOpacity>
-        <Image
-          source={{
-            uri: 'https://randomuser.me/api/portraits/med/women/28.jpg',
-          }}
-          style={styles.img}
-        />
-        <Text style={styles.header}>Kadin Lipshutz</Text>
+const MessageScreen = ({navigation}) => {
+  const [visible, setVisible] = React.useState(false);
+  const route = useRoute();
+  const user = route?.params?.user;
 
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'flex-end',
-            alignItems: 'center',
-            left: width / 9,
-          }}>
-          <TouchableOpacity onPress={() => setVisible(true)}>
+  useEffect(() => {
+    navigation.setOptions({
+      headerStyle: {
+        backgroundColor: COLORS.primary,
+        borderBottomRightRadius: 25,
+        borderBottomLeftRadius: 25,
+        shadowColor: 'black',
+        shadowOffset: {width: 0, height: 5},
+        shadowOpacity: 0.3,
+        shadowRadius: 5,
+      },
+      title: '',
+      
+      headerLeft: () => (
+        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
             <Image
-              source={icons.menu}
+              source={icons.down}
               resizeMode="contain"
-              style={styles.chat}
+              style={styles.downbtn}
             />
           </TouchableOpacity>
+
+          <Image
+            source={{
+              uri: user.photo,
+            }}
+            style={styles.imgmsg}
+          />
+          <Text style={styles.header}>{user?.name}</Text>
         </View>
-      </View>
-      <ScrollView style={{height: '100%'}}>
+      ),
+      headerRight: () => (
+        <View style={styles.menucontainer}>
+          <TouchableOpacity onPress={() => setVisible(true)}>
+            <Image source={icons.menu} style={styles.menu} />
+          </TouchableOpacity>
+        </View>
+      ),
+    });
+  });
+
+  return (
+    <View style={styles.container}>
+      <ScrollView style={{height: '100%',}}>
         <View style={styles.user}>
           <Text style={styles.usermsg}>Hi, How are you?</Text>
         </View>
@@ -96,39 +108,41 @@ const Message = ({navigation}) => {
         </View>
       </ScrollView>
       <View style={styles.msginputcontianer}>
-        <TextInput placeholder='message...' style={styles.msginput} />
+        <TextInput placeholder="message..." style={styles.msginput} />
         <TouchableOpacity style={styles.btncontainer}>
           <Text style={styles.sendbtn}>Send</Text>
         </TouchableOpacity>
       </View>
       <ModelPoup visible={visible}>
         <View>
-        <TouchableOpacity
-          style={{left: 10, marginVertical: 10}}
-          onPress={() => setVisible(false)}>
-          <Image source={icons.x} style={{height: 20, width: 20}} />
-        </TouchableOpacity>
+          <TouchableOpacity
+            style={{right: 260, marginVertical: 10, position: 'absolute', }}
+            onPress={() => setVisible(false)}>
+            <Image source={icons.x} style={{height: 25, width: 25}} />
+          </TouchableOpacity>
         </View>
-        <View style={{alignItems: 'center'}}>
+        <View style={{alignItems: 'center', justifyContent: 'center'}}>
           <View style={styles.modelheader}>
-          <View style={styles.textcontainer}>
-              <TouchableOpacity onPress={() => navigation.navigate('Login')} style={styles.rowmodal}>
-                <Image source={icons.Mute} style={styles.modaleicon}/>
+            <View style={styles.textcontainer}>
+              <TouchableOpacity
+                onPress={() => navigation.navigate('Login')}
+                style={styles.rowmodal}>
+                <Image source={icons.Mute} style={styles.modaleicon} />
                 <Text style={styles.modaltext}>Mute</Text>
               </TouchableOpacity>
             </View>
             <View style={styles.textcontainer}>
-              <TouchableOpacity onPress={() => navigation.navigate('Login')} style={styles.rowmodal}>
-              <Image source={icons.Mute} style={styles.modaleicon}/>
+              <TouchableOpacity
+                onPress={() => navigation.navigate('Login')}
+                style={styles.rowmodal}>
+                <Image source={icons.Mute} style={styles.modaleicon} />
                 <Text style={[styles.modaltext, {color: 'red'}]}>Block</Text>
               </TouchableOpacity>
             </View>
-            <TouchableOpacity style={styles.rowmodal} >
-            <Image source={icons.Report} style={styles.modaleicon}/>
+            <TouchableOpacity style={styles.rowmodal}>
+              <Image source={icons.Report} style={styles.modaleicon} />
               <Text style={styles.modaltext}>Report</Text>
-              console.log("");
             </TouchableOpacity>
-          
           </View>
         </View>
       </ModelPoup>
@@ -136,7 +150,7 @@ const Message = ({navigation}) => {
   );
 };
 
-export default Message;
+export default MessageScreen;
 
 const styles = StyleSheet.create({
   topcontainer: {
@@ -154,16 +168,20 @@ const styles = StyleSheet.create({
   downbtn: {
     height: 25,
     width: 22,
-    marginVertical: 20,
-    marginHorizontal: 10,
+    marginLeft: 5,
+    marginRight: 15,
   },
   header: {
     fontSize: SIZES.h3,
-    marginVertical: 20,
-    marginRight: 28,
     fontWeight: '700',
     letterSpacing: 1,
-    width: '40%',
+  },
+  menucontainer: {
+    marginRight: 20,
+  },
+  menu: {
+    height: 8,
+    width: 30,
   },
   notify: {
     height: 30,
@@ -179,6 +197,12 @@ const styles = StyleSheet.create({
     width: 30,
     borderRadius: 25,
     marginHorizontal: 5,
+  },
+  imgmsg: {
+    height: 30,
+    width: 30,
+    borderRadius: 25,
+    marginRight: 8,
   },
   user: {
     justifyContent: 'flex-end',
@@ -214,7 +238,7 @@ const styles = StyleSheet.create({
     paddingLeft: 28,
   },
   msginputcontianer: {
-    bottom: height / 5.25,
+    bottom: 70,
     marginHorizontal: 15,
     justifyContent: 'center',
     flexDirection: 'row',
@@ -239,7 +263,9 @@ const styles = StyleSheet.create({
     // justifyContent: 'center',
     alignItems: 'center',
     flex: 1,
-    paddingTop: height / 9,
+    paddingTop: height / 10,
+    paddingLeft: height/9,
+    transparent: true
   },
   modelcontainer: {
     width: '55%',
@@ -259,20 +285,19 @@ const styles = StyleSheet.create({
     width: '90%',
     alignItems: 'center',
     flexDirection: 'row',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   modaltext: {
     fontSize: 16,
     marginVertical: 14,
   },
-  modaleicon :{
+  modaleicon: {
     height: 25,
     width: 25,
-    marginHorizontal: 10
+    marginHorizontal: 10,
   },
   rowmodal: {
     flexDirection: 'row',
-    alignItems: 'center'
-  }
-
+    alignItems: 'center',
+  },
 });

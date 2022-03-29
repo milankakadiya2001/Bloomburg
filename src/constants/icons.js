@@ -38,6 +38,7 @@ const award = require('../assets/icons/award.png');
 const Mute = require('../assets/icons/Mute.png');
 const Report = require('../assets/icons/Report.png');
 const Block = require('../assets/icons/Block.png');
+const BloombuggLogo = require('../assets/icons/BloombuggLogo.png');
 
 export default {
   down,
@@ -79,5 +80,6 @@ export default {
   award,
   Mute,
   Report,
-  Block
+  Block,
+  BloombuggLogo,
 };

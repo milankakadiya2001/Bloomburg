@@ -1,20 +1,41 @@
-import {StyleSheet, Text, View, TouchableOpacity, Image, ScrollView} from 'react-native';
-import React from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  Image,
+  ScrollView,
+} from 'react-native';
+import React, {useEffect} from 'react';
 import {COLORS, SIZES} from '../../constants/theme';
 import icons from '../../constants/icons';
 import MyProfileTab from './MyProfileTab';
 
-const ProfileScreen = ({ navigation }) => {
-  return (
-    <ScrollView showsVerticalScrollIndicator={false} >
-      <View style={styles.topcontainer}>
+const ProfileScreen = ({navigation}) => {
+  useEffect(() => {
+    navigation.setOptions({
+      headerStyle: {
+        backgroundColor: COLORS.primary,
+        // borderBottomRightRadius: 25,
+        // borderBottomLeftRadius: 25,
+        // shadowColor: 'black',
+        // shadowOffset: {width: 0, height: 5},
+        // shadowOpacity: 0.3,
+        // shadowRadius: 5,
+      },
+      title: '',
+      headerRight: () => (
         <View style={styles.menucontainer}>
-          <TouchableOpacity 
-            onPress={() => navigation.navigate('Setting')}
-          >
+          <TouchableOpacity onPress={() => navigation.navigate('Setting')}>
             <Image source={icons.menu} style={styles.menu} />
           </TouchableOpacity>
         </View>
+      ),
+    });
+  });
+  return (
+    <ScrollView showsVerticalScrollIndicator={false}>
+      <View style={styles.topcontainer}>
         <View style={styles.imgcontainer}>
           <Image
             source={{
@@ -32,9 +53,9 @@ const ProfileScreen = ({ navigation }) => {
             justifyContent: 'space-between',
           }}>
           <Text style={styles.description}>Description here</Text>
-          <TouchableOpacity style={styles.editcontainer}
-            onPress={() => navigation.navigate('ProfileEdit')}
-          >
+          <TouchableOpacity
+            style={styles.editcontainer}
+            onPress={() => navigation.navigate('ProfileEdit')}>
             <Image source={icons.edit} style={styles.edit} />
           </TouchableOpacity>
         </View>
@@ -69,19 +90,13 @@ export default ProfileScreen;
 const styles = StyleSheet.create({
   topcontainer: {
     backgroundColor: COLORS.primary,
-    borderBottomRightRadius: 25,
-    borderBottomLeftRadius: 25,
     shadowColor: 'black',
     shadowOffset: {width: 0, height: 5},
     shadowOpacity: 0.3,
     shadowRadius: 5,
-    marginBottom: 18
+    marginBottom: 18,
   },
   menucontainer: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    marginTop: 80,
-    justifyContent: 'flex-end',
     marginRight: 20,
   },
   menu: {

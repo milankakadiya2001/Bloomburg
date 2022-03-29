@@ -5,89 +5,110 @@ import {
   TouchableOpacity,
   Image,
   TextInput,
+  KeyboardAvoidingView,
+  TouchableWithoutFeedback,
+  Keyboard,
+  ScrollView,
 } from 'react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {COLORS, SIZES} from '../../constants/theme';
 import icons from '../../constants/icons';
+import { TextInputMask } from 'react-native-masked-text'
 
 const ProfileEdit = ({navigation}) => {
-  return (
-    <View style={styles.container}>
-      <View style={styles.topcontainer}>
-        <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-          <Image
-            source={icons.down}
-            resizeMode="contain"
-            style={styles.downbtn}
-          />
-        </TouchableOpacity>
-        <Text style={styles.header}>Edit profile</Text>
-        <View>
-          <TouchableOpacity>
-            <Text style={styles.donebtn}>Done</Text>
+  useEffect(() => {
+    navigation.setOptions({
+      headerStyle: {
+        borderBottomRightRadius: 25,
+        borderBottomLeftRadius: 25,
+        shadowColor: 'black',
+        shadowOffset: {width: 0, height: 5},
+        shadowOpacity: 0.3,
+        shadowRadius: 5,
+        backgroundColor: COLORS.primary,
+      },
+      title: 'Edit profile',
+      headerTitleStyle: {Color: 'black', fontWeight: '700'},
+      headerTitleAlign: 'center',
+      headerLeft: () => (
+        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Image
+              source={icons.down}
+              resizeMode="contain"
+              style={styles.downbtn}
+            />
           </TouchableOpacity>
         </View>
-      </View>
-      <View style={styles.imgcontainer}>
-        <Image
-          source={{uri: 'https://randomuser.me/api/portraits/med/women/19.jpg'}}
-          style={styles.storyborder}
-        />
-      </View>
-      <View
-        style={{justifyContent: 'center', alignItems: 'center', marginTop: 30}}>
-        <TouchableOpacity>
-          <Text style={styles.changepic}>Change profile photo</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.inputcontainer}>
-        <View style={styles.labelcontainer}>
-          <Text style={styles.lable}>Name</Text>
-        </View>
+      ),
+    });
+  });
 
-        <TextInput placeholder="Marcus Jorden" style={styles.input} />
-        <View style={styles.labelcontainer}>
-          <Text style={styles.lable}>Date of Birth</Text>
-        </View>
+  return (
+    <KeyboardAvoidingView behavior="position">
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.container}>
+          <View style={{height: 60, backgroundColor: COLORS.primary}}></View>
+          <View style={styles.imgcontainer}>
+            <Image
+              source={{
+                uri: 'https://randomuser.me/api/portraits/med/women/19.jpg',
+              }}
+              style={styles.storyborder}
+            />
+          </View>
+          <View
+            style={{
+              justifyContent: 'center',
+              alignItems: 'center',
+              marginTop: 30,
+            }}>
+            <TouchableOpacity>
+              <Text style={styles.changepic}>Change profile photo</Text>
+            </TouchableOpacity>
+          </View>
 
-        <TextInput placeholder="DD/MM/YYYY" style={styles.input} />
-        <View style={styles.labelcontainer}>
-          <Text style={styles.lable}>About you</Text>
-        </View>
+          <ScrollView>
+            <View style={styles.inputcontainer}>
+              <View style={styles.labelcontainer}>
+                <Text style={styles.lable}>Name</Text>
+              </View>
 
-        <TextInput placeholder="Bio" style={styles.input} />
-        <View style={styles.labelcontainer}>
-          <Text style={styles.lable}>Social media link</Text>
-        </View>
+              <TextInput placeholder="Marcus Jorden" style={styles.input} />
+              <View style={styles.labelcontainer}>
+                <Text style={styles.lable}>Date of Birth</Text>
+              </View>
 
-        <TextInput placeholder="https://facebook.com" style={styles.input} />
-      </View>
-    </View>
+              <TextInput placeholder="DD/MM/YYYY" style={styles.input} />
+              <View style={styles.labelcontainer}>
+                <Text style={styles.lable}>About you</Text>
+              </View>
+
+              <TextInput placeholder="Bio" style={styles.input} />
+              <View style={styles.labelcontainer}>
+                <Text style={styles.lable}>Social media link</Text>
+              </View>
+
+              <TextInput
+                placeholder="https://facebook.com"
+                style={styles.input}
+              />
+            </View>
+          </ScrollView>
+        </View>
+      </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
   );
 };
 
 export default ProfileEdit;
 
 const styles = StyleSheet.create({
-  topcontainer: {
-    flexDirection: 'row',
-    backgroundColor: COLORS.primary,
-    paddingTop: 30,
-    borderBottomRightRadius: 25,
-    borderBottomLeftRadius: 25,
-    alignItems: 'center',
-    shadowColor: 'black',
-    shadowOffset: {width: 0, height: 5},
-    shadowOpacity: 0.3,
-    shadowRadius: 5,
-    justifyContent: 'space-between',
-    paddingBottom: 45,
-  },
   downbtn: {
     height: 25,
     width: 22,
-    marginVertical: 20,
-    marginHorizontal: 15,
+    marginLeft: 5,
+    marginRight: 15,
   },
   header: {
     fontSize: SIZES.h3,
@@ -125,7 +146,7 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
     marginLeft: 43,
     marginVertical: 3,
-    marginTop: 20
+    marginTop: 20,
   },
   lable: {
     fontSize: SIZES.h4,

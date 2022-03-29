@@ -16,12 +16,12 @@ const TabNavigator = () => {
   return (
     <Tab.Navigator
       screenOptions={{
-        headerShown: false,
+        // headerShown: false,
         tabBarStyle: {
           backgroundColor: COLORS.primary,
           borderTopLeftRadius: 15,
           borderTopRightRadius: 15,
-          paddingVertical: 15,
+          height: 75,
         },
       }}
       tabBarOptions={{showLabel: false, style: {backgroundColor: 'black'}}}>

@@ -8,15 +8,40 @@ import {
   ScrollView,
   TextInput,
 } from 'react-native';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import icons from '../../constants/icons';
 import {COLORS, SIZES} from '../../constants/theme';
 const {height, width} = Dimensions.get('window');
+import userDetail from '../HomeScreen/UserList.json';
 
 const ChatScreen = ({navigation}) => {
-  return (
-    <View style={styles.container}>
-      <View style={styles.topcontainer}>
+  const [username, setUserName] = useState('');
+  const [filterName, setFilterName] = useState(userDetail);
+
+  useEffect(() => {
+    const searchUser = userDetail.filter(users =>
+      users.name.toLowerCase().includes(username.toLowerCase()),
+    );
+    setFilterName(searchUser);
+  }, [username]);
+
+  useEffect (() => {
+    navigation.setOptions({
+      headerStyle: {backgroundColor: COLORS.primary,
+        borderBottomRightRadius: 25,
+        borderBottomLeftRadius: 25,
+        shadowColor: 'black',
+        shadowOffset: {width: 0, height: 5},
+        shadowOpacity: 0.3,
+        shadowRadius: 5,
+      },
+      title: 'Messages',
+      headerTitleStyle: {
+        fontSize: SIZES.h3,
+        fontWeight: '700',
+        letterSpacing: 1,
+      },
+      headerLeft: () => (
         <TouchableOpacity onPress={() => navigation.navigate('Home')}>
           <Image
             source={icons.down}
@@ -24,15 +49,12 @@ const ChatScreen = ({navigation}) => {
             style={styles.downbtn}
           />
         </TouchableOpacity>
-        <Text style={styles.header}>Messages</Text>
-
+      ),
+      headerRight: () => (
         <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'flex-end',
-            alignItems: 'center',
-            left: width / 3.5,
-          }}>
+        style={{
+          flexDirection: 'row',
+        }}>
           <TouchableOpacity onPress={() => navigation.navigate('Notification')}>
             <Image
               source={icons.notification}
@@ -48,118 +70,46 @@ const ChatScreen = ({navigation}) => {
             />
           </TouchableOpacity>
         </View>
-      </View>
+        )
+    })
+})
+
+const pressMessage = user => {
+  navigation.navigate('MessageScreen', {user})
+}
+
+  
+  return (
+    <View style={styles.container}>
+      
       <View style={styles.inputcontainer}>
         <Image source={icons.search} style={styles.icon} />
-        <TextInput placeholder="Search" style={styles.input} />
+        <TextInput
+          placeholder="Search"
+          value={username}
+          onChangeText={setUserName}
+          style={styles.input}
+        />
       </View>
-      <ScrollView>
-        <View>
-          <View style={styles.recent} onPress={navigation.navigate('Message')} >
-            <Image
-              source={{
-                uri: 'https://randomuser.me/api/portraits/med/women/28.jpg',
-              }}
-              style={styles.img}
-            />
-            <View style={{width: 200}}>
-              <Text style={styles.title}>Kadin Lipshutz</Text>
-              <Text style={styles.textother}>Sent a post. 5min</Text>
-            </View>
-            <View style={styles.dot}></View>
+      <View>
+        <ScrollView>
+          <View style={{marginBottom: 150}}>
+            {filterName.map((item, index) => (
+              <View style={styles.recent}>
+                <Image source={{uri: item.photo}} style={styles.img} />
+                <TouchableOpacity onPress={() => pressMessage(item)} style={{width: 200}}>
+                  <Text style={styles.title} data={filterName}>
+                    {item.name}
+                  </Text>
+                  <Text style={styles.textother}>Sent a post. 5min</Text>
+                </TouchableOpacity>
+                <View style={styles.dot}></View>
+              </View>
+            ))}
           </View>
-        </View>
-        <View>
-          <View style={styles.recent}>
-            <Image
-              source={{
-                uri: 'https://randomuser.me/api/portraits/med/women/2.jpg',
-              }}
-              style={styles.img}
-            />
-            <View style={{width: 200}}>
-              <Text style={styles.title}>Kadin Lipshutz</Text>
-              <Text style={styles.textother}>Sent a post. 5min</Text>
-            </View>
-            <View style={styles.dot}></View>
-          </View>
-        </View>
-        <View>
-          <View style={styles.recent}>
-            <Image
-              source={{
-                uri: 'https://randomuser.me/api/portraits/med/women/25.jpg',
-              }}
-              style={styles.img}
-            />
-            <View style={{width: 200}}>
-              <Text style={styles.title}>Kadin Lipshutz</Text>
-              <Text style={styles.textother}>Sent a post. 5min</Text>
-            </View>
-            <View style={styles.dot}></View>
-          </View>
-        </View>
-        <View>
-          <View style={styles.recent}>
-            <Image
-              source={{
-                uri: 'https://randomuser.me/api/portraits/med/women/8.jpg',
-              }}
-              style={styles.img}
-            />
-            <View style={{width: 200}}>
-              <Text style={styles.title}>Kadin Lipshutz</Text>
-              <Text style={styles.textother}>Sent a post. 5min</Text>
-            </View>
-            <View style={styles.dot}></View>
-          </View>
-        </View>
-        <View>
-          <View style={styles.recent}>
-            <Image
-              source={{
-                uri: 'https://randomuser.me/api/portraits/med/women/27.jpg',
-              }}
-              style={styles.img}
-            />
-            <View style={{width: 200}}>
-              <Text style={styles.title}>Kadin Lipshutz</Text>
-              <Text style={styles.textother}>Sent a post. 5min</Text>
-            </View>
-            <View style={styles.dot}></View>
-          </View>
-        </View>
-        <View>
-          <View style={styles.recent}>
-            <Image
-              source={{
-                uri: 'https://randomuser.me/api/portraits/med/women/38.jpg',
-              }}
-              style={styles.img}
-            />
-            <View style={{width: 200}}>
-              <Text style={styles.title}>Kadin Lipshutz</Text>
-              <Text style={styles.textother}>Sent a post. 5min</Text>
-            </View>
-            <View style={styles.dot}></View>
-          </View>
-        </View>
-        <View>
-          <View style={styles.recent}>
-            <Image
-              source={{
-                uri: 'https://randomuser.me/api/portraits/med/women/30.jpg',
-              }}
-              style={styles.img}
-            />
-            <View style={{width: 200}}>
-              <Text style={styles.title}>Kadin Lipshutz</Text>
-              <Text style={styles.textother}>Sent a post. 5min</Text>
-            </View>
-            <View style={styles.dot}></View>
-          </View>
-        </View>
-      </ScrollView>
+          <View  ></View>
+        </ScrollView>
+      </View>
     </View>
   );
 };
@@ -167,23 +117,11 @@ const ChatScreen = ({navigation}) => {
 export default ChatScreen;
 
 const styles = StyleSheet.create({
-  topcontainer: {
-    flexDirection: 'row',
-    backgroundColor: COLORS.primary,
-    paddingTop: 30,
-    borderBottomRightRadius: 25,
-    borderBottomLeftRadius: 25,
-    alignItems: 'center',
-    shadowColor: 'black',
-    shadowOffset: {width: 0, height: 5},
-    shadowOpacity: 0.3,
-    shadowRadius: 5,
-  },
   downbtn: {
     height: 25,
     width: 22,
-    marginVertical: 20,
-    marginHorizontal: 15,
+    marginLeft: 5,
+    marginRight: 15,
   },
   header: {
     fontSize: SIZES.h3,
@@ -193,12 +131,12 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
   },
   notify: {
-    height: 30,
-    width: 30,
+    height: 25,
+    width: 25,
   },
   chat: {
-    height: 30,
-    width: 30,
+    height: 25,
+    width: 25,
     marginHorizontal: 15,
   },
   inputcontainer: {
@@ -224,11 +162,9 @@ const styles = StyleSheet.create({
   },
   recent: {
     flexDirection: 'row',
-    // marginTop: 15,
     alignItems: 'center',
     paddingLeft: 10,
     paddingVertical: 8,
-    // paddingBottom: 18,
     borderColor: '#BBBBBB',
   },
   img: {
