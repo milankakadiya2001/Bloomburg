@@ -28,6 +28,13 @@ import Search from './src/screen/HomeScreen/Search';
 import ChatScreen from './src/screen/HomeScreen/ChatScrenn';
 import Message from './src/screen/HomeScreen/Message';
 import MessageScreen from './src/screen/HomeScreen/Message';
+import ChalangeHome from './src/screen/ChalengeScreens/ChalangeHome';
+import BloomTrees from './src/screen/BoomScreens/BloomTrees';
+import ChalangeBtn from './src/screen/ChalengeScreens/ChalangeBtn';
+import Trees from './src/screen/BoomScreens/Trees';
+import Followers from './src/screen/ProfileScreens/Followers';
+import Save from './src/screen/ProfileScreens/Save';
+import OfferCard from './src/screen/RewaedsScreen/OfferCard';
 
 const Stack = createNativeStackNavigator();
 
@@ -67,6 +74,12 @@ export default class App extends React.Component {
           <Stack.Screen name="Search" component={Search} />
           <Stack.Screen name="Chats" component={ChatScreen} />
           <Stack.Screen name="MessageScreen" component={MessageScreen} />
+          <Stack.Screen name="BloomTrees" component={BloomTrees} />
+          <Stack.Screen name="ChalangeBtn" component={ChalangeBtn} />
+          <Stack.Screen name="Trees" component={Trees} />
+          <Stack.Screen name="Followers" component={Followers} />
+          <Stack.Screen name="Save" component={Save} />
+          <Stack.Screen name="OfferCard" component={OfferCard} />
         </Stack.Navigator>
       </NavigationContainer>
     );

@@ -6,7 +6,7 @@ import {COLORS, SIZES, FONTS} from '../constants/theme';
 import HomeScreen from './HomeScreen/HomeScreen';
 import ChalengeScreen from './ChalengeScreens/ChalengeScreen';
 import ProfileScreen from './ProfileScreens/ProfileScreen';
-import RewardsScreen from './RewardsScreen';
+import RewardsScreen from './RewaedsScreen/RewardsScreen';
 import BoomScreen from './BoomScreens/BoomScreen';
 import icons from '../constants/icons';
 

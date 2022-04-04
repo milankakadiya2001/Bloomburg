@@ -16,12 +16,6 @@ const ProfileScreen = ({navigation}) => {
     navigation.setOptions({
       headerStyle: {
         backgroundColor: COLORS.primary,
-        // borderBottomRightRadius: 25,
-        // borderBottomLeftRadius: 25,
-        // shadowColor: 'black',
-        // shadowOffset: {width: 0, height: 5},
-        // shadowOpacity: 0.3,
-        // shadowRadius: 5,
       },
       title: '',
       headerRight: () => (
@@ -68,13 +62,19 @@ const ProfileScreen = ({navigation}) => {
             paddingBottom: 25,
           }}>
           <View style={{alignItems: 'center', flexDirection: 'row'}}>
-            <Text style={{marginRight: 8}}>999</Text>
-            <Text style={{color: '#464646'}}>Follwers</Text>
-            <Text style={{marginLeft: 15, marginRight: 8}}>999</Text>
-            <Text style={{color: '#464646'}}>Following</Text>
+            <TouchableOpacity onPress={() => navigation.navigate('Followers')}
+              style={{alignItems: 'center', flexDirection: 'row'}}>
+              <Text style={{marginRight: 8}}>999</Text>
+              <Text style={{color: '#464646'}}>Follwers</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{alignItems: 'center', flexDirection: 'row'}}>
+              <Text style={{marginLeft: 15, marginRight: 8}}>999</Text>
+              <Text style={{color: '#464646'}}>Following</Text>
+            </TouchableOpacity>
           </View>
           <View>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('Save')} >
               <Image source={icons.save} style={styles.save} />
             </TouchableOpacity>
           </View>

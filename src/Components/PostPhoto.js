@@ -8,13 +8,13 @@ import {
 } from 'react-native';
 import React from 'react';
 import icons from '../constants/icons';
-let user = require('../Components/PostPic.json');
+let user = require('../screen/HomeScreen/UserList.json');
 
 const PostPhoto = () => {
     renderImages = item => {
       return (
         <View style={{flex: 1, alignItems: "center", }}>
-          <Image source={{uri: item.item.image}} style={{height: 125,width: 125, marginTop: 5}} />
+          <Image source={{uri: item.item.postpic}} style={{height: 125,width: 125, marginTop: 5}} />
         </View>
       );
     };

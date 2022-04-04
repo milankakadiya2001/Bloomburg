@@ -14,9 +14,8 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import {COLORS, SIZES, FONTS} from '../constants/theme';
-import CountryPicker from './../Components/countryPicker';
-import {CountryCode} from '../../src/Components/countryCode';
 import icons from '../constants/icons';
+import country from './countryCode.json';
 
 const ModelPoup = ({visible, children}) => {
   const [showModel, setShowModel] = React.useState(visible);
@@ -25,7 +24,7 @@ const ModelPoup = ({visible, children}) => {
   }, [visible]);
   const toggleModel = () => {
     if (visible) {
-      setShowModel(false);
+      setShowModel(true);
     } else {
       setShowModel(false);
     }
@@ -59,13 +58,16 @@ const LoginScreen = ({navigation}) => {
               </View>
               <View style={styles.inputcontiner}>
                 <View style={styles.contrycode}>
-                  <TextInput
+                  {/* <TextInput
                     placeholder="+91"
                     placeholderTextColor="#000000D9"
                     maxLength={3}
                     keyboardType="numeric"
                     style={styles.code}
-                  />
+                  /> */}
+                  <TouchableOpacity
+                    style={styles.code}
+                    onPress={() => setVisible(true)}></TouchableOpacity>
                   <TextInput
                     style={styles.inputNo}
                     placeholder="Phone Number"
@@ -89,24 +91,31 @@ const LoginScreen = ({navigation}) => {
         ) : null} */}
         <View>
           <ModelPoup visible={visible}>
-            {/* <View style={{alignItems: 'center'}}>
-            <View style={styles.modelheader}>
-              <TouchableOpacity onPress={() => setVisible(false)} ><Image source={icons.x} style={{height: 25, width: 25}} /></TouchableOpacity> 
-            </View>
-          </View> */}
             <View style={styles.inputcontainer}>
-              <Image source={icons.search} style={styles.icon} />
-              <TextInput placeholder="Search" style={styles.input} />
-              <TouchableOpacity onPress={() => setVisible(false)}>
-                <Image source={icons.x} style={styles.iconx} />
-              </TouchableOpacity>
+              <View style={{justifyContent: 'center'}}>
+                <Image source={icons.search} style={styles.icon} />
+                <TextInput placeholder="Search" style={styles.input} />
+                <TouchableOpacity onPress={() => setVisible(false)}>
+                  <Image source={icons.x} style={styles.iconx} />
+                </TouchableOpacity>
+              </View>
+              </View>
               <ScrollView>
-                <View style={{flexDirection: 'row'}}>
-                  <Text></Text>
-                  <Text></Text>
+                <View style={{flexDirection: 'column', width: '80%', justifyContent: 'center', marginHorizontal: 35 }}>
+                  {country.map((item, index) => (
+                    <View >
+                      <TouchableOpacity style={{flexDirection: 'row', marginVertical: 10}}>
+                      <Text style={{fontSize: 18, width: 58}}>
+                        {item.dial_code}
+                      </Text>
+                      <Text style={{fontSize: 18, marginHorizontal: 10}}>
+                        {item.name}
+                      </Text></TouchableOpacity>
+                    </View>
+                  ))}
                 </View>
               </ScrollView>
-            </View>
+            
           </ModelPoup>
         </View>
       </KeyboardAvoidingView>
@@ -189,7 +198,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     width: '23%',
     padding: 15,
-    marginRight: 10
+    marginRight: 10,
   },
   inputNo: {
     fontSize: SIZES.h4,
@@ -219,9 +228,10 @@ const styles = StyleSheet.create({
   },
   modelcontainer: {
     width: '90%',
+    height: '60%',
     backgroundColor: 'white',
     paddingHorizontal: 20,
-    paddingVertical: 40,
+    paddingVertical: 30,
     borderRadius: 20,
     elevation: 20,
   },

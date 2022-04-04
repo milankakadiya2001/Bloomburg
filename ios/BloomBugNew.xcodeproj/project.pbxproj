@@ -145,7 +145,6 @@
 				08BE8E0572F0902F04D9E0EA /* Pods-BloomBugNew-BloomBugNewTests.debug.xcconfig */,
 				CBA8F331A959C217D86AC24B /* Pods-BloomBugNew-BloomBugNewTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -485,6 +484,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3HHGJTCB3D;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = BloomBugNew/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -511,6 +511,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3HHGJTCB3D;
 				INFOPLIST_FILE = BloomBugNew/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

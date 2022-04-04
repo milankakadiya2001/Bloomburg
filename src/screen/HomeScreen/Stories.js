@@ -14,7 +14,7 @@ const Stories = () => {
                 <Image source= {icons.add} style= {styles.addbtn} />
                 
             </View>
-            <Text>Add story</Text>
+            <Text></Text>
         </View>
         </View>
       {user.map((item, index) => (
@@ -35,10 +35,10 @@ const styles = StyleSheet.create({
   storyborder: {
     borderColor: '#2C5F2D',    
     borderRadius: 50,
-    width: 75,
-    height: 75,
+    width: 70,
+    height: 70,
     padding: 2,
-    marginHorizontal: 3,
+    marginHorizontal: 4,
   },
   storyimg: {
       width: '100%',
@@ -47,8 +47,8 @@ const styles = StyleSheet.create({
   },
   username: {
       textAlign: 'center',
-      color: COLORS.black
-      
+      color: COLORS.black,
+      marginTop: 5
   },
   addcontainer: {
     marginTop: 50,

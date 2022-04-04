@@ -50,6 +50,11 @@
         "postpic": "https://bera.house.gov/sites/bera.house.gov/files/wysiwyg_uploaded/CAB_Environment_Header.jpg"
     },
     {
+        "name" : "riah",
+        "photo": "https://randomuser.me/api/portraits/med/women/31.jpg",
+        "postpic": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY4SFQqEEln7gGYfCW573KGCJLKDrro6eN1rPbTTPlnl1bM9UrMMzZJO6t_smHf84Z5ss&usqp=CAU"
+    },
+    {
         "name" : "Ella",
         "photo": "https://randomuser.me/api/portraits/med/women/8.jpg",
         "postpic": "https://i0.wp.com/www.giveindia.org/blog/wp-content/uploads/2021/06/World-Environment-Day-2021-SankalpTaru-Foundation-1.jpg?resize=696%2C391&ssl=1"

@@ -32,7 +32,7 @@ const BoomScreen = ({navigation}) => {
       
       <ScrollView showsVerticalScrollIndicator= {false} >
         <View style={styles.mainbox}>
-          <TouchableOpacity style={styles.actioncontainer}>
+          <TouchableOpacity style={styles.actioncontainer} onPress={() => navigation.navigate('BloomTrees')} >
             <Text style={styles.actionname}>TREES</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.actioncontainer}>

@@ -12,9 +12,9 @@ const add = require('../assets/icons/Add.png');
 const menu = require('../assets/icons/Menu.png');
 const edit = require('../assets/icons/edit.png');
 const save = require('../assets/icons/save.png');
-const Like = require('../assets/icons/Likea.png');
-const Comment = require('../assets/icons/Commenta.png');
-const Share = require('../assets/icons/Sharea.png');
+const Like = require('../assets/icons/lik.png');
+const Comment = require('../assets/icons/comnt.png');
+const Share = require('../assets/icons/share.png');
 const Post = require('../assets/icons/post.jpeg');
 const Right = require('../assets/icons/Right.png');
 const Privacy = require('../assets/icons/Privacy.png');
@@ -39,8 +39,12 @@ const Mute = require('../assets/icons/Mute.png');
 const Report = require('../assets/icons/Report.png');
 const Block = require('../assets/icons/Block.png');
 const BloombuggLogo = require('../assets/icons/BloombuggLogo.png');
+const chalangeimg = require('../assets/icons/chalangeimg.jpeg');
+const copy = require('../assets/icons/Copy.png');
+const tomy = require('../assets/icons/tomy.png');
 
 export default {
+  chalangeimg,
   down,
   home,
   homea,
@@ -82,4 +86,6 @@ export default {
   Report,
   Block,
   BloombuggLogo,
+  copy, 
+  tomy
 };

@@ -13,6 +13,7 @@ import icons from '../../constants/icons';
 import {COLORS, SIZES} from '../../constants/theme';
 const {height, width} = Dimensions.get('window');
 import userDetail from '../HomeScreen/UserList.json';
+import { SwipeListView } from 'react-native-swipe-list-view';
 
 const ChatScreen = ({navigation}) => {
   const [username, setUserName] = useState('');
@@ -91,6 +92,22 @@ const pressMessage = user => {
           style={styles.input}
         />
       </View>
+      {/* <SwipeListView
+            // data={}
+            renderItem={ (data, rowMap) => (
+                <View style={{padding: 10, borderWidth: 1, width: '100%'}}>
+                    <Text>I am  in a SwipeListView</Text>
+                </View>
+            )}
+            renderHiddenItem={ (data, rowMap) => (
+                <View style={styles.rowBack}>
+                    <Text>Left</Text>
+                    <Text>Right</Text>
+                </View>
+            )}
+            leftOpenValue={75}
+            rightOpenValue={-75}
+        /> */}
       <View>
         <ScrollView>
           <View style={{marginBottom: 150}}>
