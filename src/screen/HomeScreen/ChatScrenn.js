@@ -115,7 +115,7 @@ const pressMessage = user => {
               <View style={styles.recent}>
                 <Image source={{uri: item.photo}} style={styles.img} />
                 <TouchableOpacity onPress={() => pressMessage(item)} style={{width: 200}}>
-                  <Text style={styles.title} data={filterName}>
+                  <Text style={styles.title} >
                     {item.name}
                   </Text>
                   <Text style={styles.textother}>Sent a post. 5min</Text>

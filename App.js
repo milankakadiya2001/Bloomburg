@@ -35,6 +35,9 @@ import Trees from './src/screen/BoomScreens/Trees';
 import Followers from './src/screen/ProfileScreens/Followers';
 import Save from './src/screen/ProfileScreens/Save';
 import OfferCard from './src/screen/RewaedsScreen/OfferCard';
+import Comments from './src/Components/Comment';
+import CommentScreen from './src/Components/Comment';
+import AddStory from './src/screen/HomeScreen/AddStory';
 
 const Stack = createNativeStackNavigator();
 
@@ -80,6 +83,8 @@ export default class App extends React.Component {
           <Stack.Screen name="Followers" component={Followers} />
           <Stack.Screen name="Save" component={Save} />
           <Stack.Screen name="OfferCard" component={OfferCard} />
+          <Stack.Screen name="CommentScreen" component={CommentScreen} />
+          <Stack.Screen name="AddStory" component={AddStory} />
         </Stack.Navigator>
       </NavigationContainer>
     );

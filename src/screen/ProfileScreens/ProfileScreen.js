@@ -67,7 +67,7 @@ const ProfileScreen = ({navigation}) => {
               <Text style={{marginRight: 8}}>999</Text>
               <Text style={{color: '#464646'}}>Follwers</Text>
             </TouchableOpacity>
-            <TouchableOpacity
+            <TouchableOpacity onPress={() => navigation.navigate('Followers')}
               style={{alignItems: 'center', flexDirection: 'row'}}>
               <Text style={{marginLeft: 15, marginRight: 8}}>999</Text>
               <Text style={{color: '#464646'}}>Following</Text>

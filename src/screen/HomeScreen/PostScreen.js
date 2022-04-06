@@ -6,32 +6,16 @@ import {
   TouchableOpacity,
   Modal,
 } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import user from './UserList.json';
 import icons from '../../constants/icons';
 import BottomSheet from '../../Components/BottomSheet';
+import {useNavigation} from '@react-navigation/native';
 
-const ModelPoup = ({visible, children}) => {
-  const [showModel, setShowModel] = React.useState(visible);
-  React.useEffect(() => {
-    toggleModel();
-  }, [visible]);
-  const toggleModel = () => {
-    if (visible) {
-      setShowModel(true);
-    } else {
-      setShowModel(false);
-    }
-  };
-  return (
-    <Modal transparent visible={showModel}>
-      <View style={styles.modalBackGround}>
-        <View>{children}</View>
-      </View>
-    </Modal>
-  );
-};
 const PostScreen = () => {
+  const [show, setShow] = useState(true);
+
+  const navigation = useNavigation();
   const [visible, setVisible] = React.useState(false);
   return (
     <View>
@@ -55,12 +39,14 @@ const PostScreen = () => {
               <TouchableOpacity>
                 <Image source={icons.Like} style={styles.like} />
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={item => navigation.navigate('CommentScreen')}>
                 <Image source={icons.Comment} style={styles.comment} />
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => setVisible(true)}>
+              <TouchableOpacity onPress={() => setShow(true)}>
                 <Image source={icons.Share} style={styles.share} />
               </TouchableOpacity>
+              
             </View>
             <View style={styles.Othercontainer}>
               <Text style={styles.like}>1.5k</Text>
@@ -68,13 +54,9 @@ const PostScreen = () => {
               <Text style={styles.share}>1.5k</Text>
             </View>
           </View>
+
         ))}
       </View>
-      {/* <View>
-        <ModelPoup visible={visible}>
-          <BottomSheet />
-        </ModelPoup>
-      </View> */}
     </View>
   );
 };

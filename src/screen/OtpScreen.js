@@ -49,7 +49,6 @@ const OtpScreen = ({navigation}) => {
                   autoFocusOnLoad
                   codeInputFieldStyle={styles.underlineStyleBase}
                   onCodeFilled={() => OnVerifyOtp()}
-                  // codeInputHighlightStyle={styles.underlineStyleHighLighted}
                 />
               </View>
               <View style={{justifyContent: 'center', alignItems: 'center'}}>
@@ -137,6 +136,11 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 10,
     marginTop: 18,
+    shadowColor: 'rgba(0, 0, 0, 0.8)',
+    shadowOffset: {width: 0, height: 4},
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
+    elevation: 20
   },
   send: {
     fontSize: SIZES.h4,
@@ -144,8 +148,6 @@ const styles = StyleSheet.create({
     color: COLORS.black
   },
   underlineStyleBase: {
-    // width: 50,
-    // height: 45,
     borderWidth: 0,
     borderWidth: 1,
     backgroundColor: '#EAF1F5',

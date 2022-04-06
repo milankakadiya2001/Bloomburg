@@ -45,7 +45,7 @@ const ChangeNoSetting = ({navigation}) => {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <KeyboardAvoidingView>
-        <View style={{height: '100%'}} >
+        <View style={{height: '100%'}}>
           <View style={styles.container}>
             <View style={styles.secondcontainer}>
               <Text style={styles.maintext}>
@@ -65,7 +65,7 @@ const ChangeNoSetting = ({navigation}) => {
                 <TextInput
                   style={styles.inputphone}
                   placeholder="Phone Number"
-                  keyboardType='numeric'
+                  keyboardType="numeric"
                 />
               </View>
             </View>
@@ -87,7 +87,7 @@ const ChangeNoSetting = ({navigation}) => {
                 <TextInput
                   style={styles.inputphone}
                   placeholder="Phone Number"
-                  keyboardType='numeric'
+                  keyboardType="numeric"
                 />
               </View>
             </View>

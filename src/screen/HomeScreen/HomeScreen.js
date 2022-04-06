@@ -6,36 +6,40 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import {COLORS, SIZES} from '../../constants/theme';
 import icons from '../../constants/icons';
 import Stories from './Stories';
 import PostScreen from './PostScreen';
-import NotificationUser from './NotificationUser';
 
 const HomeScreen = ({navigation}) => {
-  
-  useEffect (() => {
-      navigation.setOptions({
-        headerStyle: {backgroundColor: COLORS.primary,
-          borderBottomRightRadius: 25,
-          borderBottomLeftRadius: 25,
-          shadowColor: 'black',
-          shadowOffset: {width: 0, height: 5},
-          shadowOpacity: 0.3,
-          shadowRadius: 5,
-        },
-        title: '',
-        headerLeft: () => (
-          <View style={{marginLeft: 15}}>
-           <View >
-          <Image source={icons.BloombuggLogo}  style={styles.header}  />
-        </View>
+  useEffect(() => {
+    navigation.setOptions({
+      headerStyle: {
+        backgroundColor: COLORS.primary,
+        borderBottomRightRadius: 25,
+        borderBottomLeftRadius: 25,
+        shadowColor: 'black',
+        shadowOffset: {width: 0, height: 5},
+        shadowOpacity: 0.3,
+        shadowRadius: 5,
+      },
+      title: '',
+      headerLeft: () => (
+        <View style={{marginLeft: 15}}>
+          <View>
+            <Image source={icons.BloombuggLogo} style={styles.header} />
           </View>
-        ),
-        headerRight: () => (
-          <View
-          style={{flexDirection: 'row', flexWrap: 'wrap', marginBottom: 10, alignItems: 'center'}}>
+        </View>
+      ),
+      headerRight: () => (
+        <View
+          style={{
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            marginBottom: 10,
+            alignItems: 'center',
+          }}>
           <TouchableOpacity onPress={() => navigation.navigate('Search')}>
             <Image
               source={icons.search}
@@ -58,15 +62,20 @@ const HomeScreen = ({navigation}) => {
             />
           </TouchableOpacity>
         </View>
-          )
-      })
-  })
+      ),
+    });
+  });
 
   return (
     <View style={styles.container}>
-      <ScrollView>
-        <Stories />
-        <PostScreen />
+      <ScrollView scrollIndicatorInsets={{left: 2}} showsVerticalScrollIndicator={false}  style={{position: 'relative'}}>
+        <View>
+          <TouchableOpacity activeOpacity={0.5} style={{}}>
+            {/* <Image source={icons.plus} style={styles.plusImg} /> */}
+          </TouchableOpacity>
+          <Stories />
+          <PostScreen />
+        </View>
       </ScrollView>
     </View>
   );
@@ -76,8 +85,8 @@ export default HomeScreen;
 
 const styles = StyleSheet.create({
   header: {
-    width: 195, 
-    height: 33
+    width: 195,
+    height: 33,
   },
   notify: {
     height: 30,
@@ -88,10 +97,17 @@ const styles = StyleSheet.create({
     width: 25,
     marginHorizontal: 15,
   },
-  search:{
+  search: {
     height: 30,
     width: 30,
     marginHorizontal: 9,
-
-  }
+  },
+  plusImg: {
+    height: 60,
+    width: 60,
+    position: 'absolute',
+    left: 0,
+    bottom: -100,
+    backgroundColor: 'transparent',
+  },
 });

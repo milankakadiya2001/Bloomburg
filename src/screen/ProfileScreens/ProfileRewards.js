@@ -170,6 +170,7 @@ const styles = StyleSheet.create({
   modalBackGround: {
     backgroundColor: 'rgba(0,0,0,0.5)',
     flex: 1,
+    // elevation: 100
   },
   modelcontainer: {
     width: '75%',

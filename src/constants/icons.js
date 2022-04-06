@@ -42,6 +42,7 @@ const BloombuggLogo = require('../assets/icons/BloombuggLogo.png');
 const chalangeimg = require('../assets/icons/chalangeimg.jpeg');
 const copy = require('../assets/icons/Copy.png');
 const tomy = require('../assets/icons/tomy.png');
+const plus = require('../assets/icons/Plus.png');
 
 export default {
   chalangeimg,
@@ -87,5 +88,6 @@ export default {
   Block,
   BloombuggLogo,
   copy, 
-  tomy
+  tomy,
+  plus
 };

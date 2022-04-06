@@ -14,6 +14,50 @@ import React, {useEffect} from 'react';
 import {COLORS, SIZES} from '../../constants/theme';
 import icons from '../../constants/icons';
 import user from '../HomeScreen/UserList.json';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+
+const Tab = createMaterialTopTabNavigator();
+
+const FollowerList = () => {
+ return (
+   <ScrollView  >
+     {user.map((item, index) => (
+        <View style={styles.recent}>
+          <Image source={{uri: item.photo}} style={styles.img} />
+          <TouchableOpacity style={{width: 200}}>
+            <Text style={styles.title}>{item.name}</Text>
+            <Text style={styles.textother}>Sent a post. 5min</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.dot}>
+              <Text style={styles.remove} >Remove</Text>
+          </TouchableOpacity>
+        </View>
+       
+      ))}
+   </ScrollView>
+ )
+}
+
+const FollowingList = () => {
+  return (
+    <ScrollView>
+      {user.map((item, index) => (
+         <View style={styles.recent}>
+           <Image source={{uri: item.photo}} style={styles.img} />
+           <TouchableOpacity style={{width: 200}}>
+             <Text style={styles.title}>{item.name}</Text>
+             <Text style={styles.textother}>Sent a post. 5min</Text>
+           </TouchableOpacity>
+ 
+           <TouchableOpacity style={styles.dot}>
+               <Text style={styles.remove} >Following</Text>
+           </TouchableOpacity>
+         </View>
+       ))}
+    </ScrollView>
+  )
+ }
 
 const Followers = ({navigation}) => {
   useEffect(() => {
@@ -45,20 +89,24 @@ const Followers = ({navigation}) => {
   });
   return (
     <View>
-      {user.map((item, index) => (
-
-        <View style={styles.recent}>
-          <Image source={{uri: item.photo}} style={styles.img} />
-          <TouchableOpacity style={{width: 200}}>
-            <Text style={styles.title}>{item.name}</Text>
-            <Text style={styles.textother}>Sent a post. 5min</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.dot}>
-              <Text style={styles.remove} >Remove</Text>
-          </TouchableOpacity>
-        </View>
-      ))}
+      <View style={{height: '100%'}}>
+                <Tab.Navigator
+                  tabBarOptions={{
+                    tintColor: 'black',
+                    labelStyle: {fontSize: 16, fontWeight: '700', textTransform: 'capitalize' },
+                    tabBarActiveTintColor: '#fff',
+                    indicatorStyle: { backgroundColor: '#2C5F2D',  },
+                    style: {marginHorizontal: 35, marginTop: 20, marginBottom: 15}
+                  }}
+                  tabBarItemStyle={{
+                    color: 'black',
+                  }}>
+                  <Tab.Screen name="Followers" component={FollowerList} />
+                  <Tab.Screen name="Following" component={FollowingList}  />
+                 
+                </Tab.Navigator>
+              </View>
+      
     </View>
   );
 };
@@ -78,6 +126,7 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingVertical: 8,
     borderColor: '#BBBBBB',
+    
   },
   img: {
     height: 50,
@@ -98,7 +147,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 0.5,
     padding: 5,
-    paddingHorizontal: 11
+    paddingHorizontal: 11,
+    
   },
   remove: {
       fontSize: 13
