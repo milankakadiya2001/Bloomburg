@@ -8,6 +8,7 @@ import {
   ScrollView,
   TextInput,
   Modal,
+  TouchableHighlight
 } from 'react-native';
 import React, {Children, useEffect, useState} from 'react';
 import icons from '../../constants/icons';
@@ -30,6 +31,7 @@ const ModelPoup = ({visible, children}) => {
 
   return (
     <Modal visible={showModel} transparent>
+      
       <View style={styles.modalBackGround}>
         <View style={[styles.modelcontainer]}>{children}</View>
       </View>
@@ -38,9 +40,14 @@ const ModelPoup = ({visible, children}) => {
 };
 
 const MessageScreen = ({navigation}) => {
+  const [muteAction, setMuteAction] = useState(false)
   const [visible, setVisible] = React.useState(false);
   const route = useRoute();
   const user = route?.params?.user;
+
+  const PressMute = () => {
+    setMuteAction(!muteAction)
+  }
 
   useEffect(() => {
     navigation.setOptions({
@@ -54,7 +61,7 @@ const MessageScreen = ({navigation}) => {
         shadowRadius: 5,
       },
       title: '',
-      
+
       headerLeft: () => (
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <TouchableOpacity onPress={() => navigation.goBack()}>
@@ -86,7 +93,7 @@ const MessageScreen = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <ScrollView style={{height: '100%',}}>
+      <ScrollView style={{height: '100%'}}>
         <View style={styles.user}>
           <Text style={styles.usermsg}>Hi, How are you?</Text>
         </View>
@@ -114,28 +121,31 @@ const MessageScreen = ({navigation}) => {
         </TouchableOpacity>
       </View>
       <ModelPoup visible={visible}>
+            <TouchableOpacity onPress={() => setVisible(false)} >
         <View>
           <TouchableOpacity
-            style={{right: 260, marginVertical: 10, position: 'absolute', }}
+            style={{right: 260, marginVertical: 10, position: 'absolute'}}
             onPress={() => setVisible(false)}>
             <Image source={icons.x} style={{height: 25, width: 25}} />
           </TouchableOpacity>
         </View>
+        <TouchableHighlight>
         <View style={{alignItems: 'center', justifyContent: 'center'}}>
           <View style={styles.modelheader}>
             <View style={styles.textcontainer}>
-              <TouchableOpacity
-                onPress={() => navigation.navigate('Login')}
+              <TouchableOpacity onPress={PressMute}
                 style={styles.rowmodal}>
-                <Image source={icons.Mute} style={styles.modaleicon} />
-                <Text style={styles.modaltext}>Mute</Text>
+                <Image source={muteAction ? icons.unmute : icons.Mute} style={styles.modaleicon} />
+                <Text style={styles.modaltext}>{muteAction ? 'Unmute' : 'Mute'}</Text>
               </TouchableOpacity>
             </View>
             <View style={styles.textcontainer}>
               <TouchableOpacity
-                onPress={() => navigation.navigate('Login')}
                 style={styles.rowmodal}>
-                <Image source={icons.Mute} style={styles.modaleicon} />
+                <Image
+                  source={icons.Block}
+                  style={[styles.modaleicon, {height: 20, width: 20}]}
+                />
                 <Text style={[styles.modaltext, {color: 'red'}]}>Block</Text>
               </TouchableOpacity>
             </View>
@@ -145,6 +155,8 @@ const MessageScreen = ({navigation}) => {
             </TouchableOpacity>
           </View>
         </View>
+        </TouchableHighlight>
+        </TouchableOpacity>
       </ModelPoup>
     </View>
   );
@@ -264,8 +276,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
     paddingTop: height / 10,
-    paddingLeft: height/9,
-    transparent: true
+    paddingLeft: height / 9,
+    transparent: true,
   },
   modelcontainer: {
     width: '55%',

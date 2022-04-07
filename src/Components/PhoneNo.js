@@ -52,7 +52,7 @@ const PhoneNo = ({navigation}) => {
   };
 
   return (
-    <View>
+    <View style={{backgroundColor: '#FFF'}}>
       <View style={styles.secondarycontainer}>
         <View style={styles.continer}>
           <View style={styles.inputcontainers}>
@@ -116,7 +116,7 @@ const PhoneNo = ({navigation}) => {
               {filterName.map((item, index) => (
                 <View>
                   <TouchableOpacity
-                    onPress={selectCountry(item)}
+                    onPress={()=>{selectCountry(item)}}
                     style={{flexDirection: 'row', marginVertical: 10}}>
                     <Text style={{fontSize: 18, width: 58}}>
                       {item.dial_code}
@@ -140,9 +140,10 @@ export default PhoneNo;
 const styles = StyleSheet.create({
   secondarycontainer: {
     justifyContent: 'center',
+    backgroundColor: '#FFF',
   },
   btncontainer: {
-    // flex: 1,
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     marginHorizontal: 24,
@@ -155,9 +156,9 @@ const styles = StyleSheet.create({
     color: COLORS.black,
   },
   continer: {
-    // flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    paddingBottom: 35,
   },
   inputcontainers: {
     flexDirection: 'row',
@@ -191,11 +192,11 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 10,
     marginTop: 10,
-    shadowColor: 'rgba(0, 0, 0, 0.8)',
+    shadowColor: 'rgba(0, 0, 0, 0.3)',
     shadowOffset: {width: 0, height: 4},
     shadowOpacity: 0.2,
     shadowRadius: 5,
-    elevation: 20
+    elevation: 5,
   },
   send: {
     fontSize: SIZES.h4,

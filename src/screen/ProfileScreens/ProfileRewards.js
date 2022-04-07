@@ -9,6 +9,7 @@ import {
   Dimensions,
   _Image,
   TouchableWithoutFeedback,
+  TouchableHighlight,
 } from 'react-native';
 import React from 'react';
 import icons from '../../constants/icons';
@@ -40,14 +41,16 @@ const ProfileRewards = () => {
     <View>
       <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
         <View style={{flexDirection: 'row'}}>
-          <TouchableOpacity onPress={() => setVisible(true)}
-            style={styles.card}
-            >
+          <TouchableOpacity
+            onPress={() => setVisible(true)}
+            style={styles.card}>
             <Image source={icons.paytm} style={styles.cardimg} />
             <Text style={styles.cardtext}>Pay on Tommy and Hilfiger</Text>
             <Text style={styles.cardtext}>Get up to ₹1000 Cashback</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => setVisible(true)} style={styles.card}>
+          <TouchableOpacity
+            onPress={() => setVisible(true)}
+            style={styles.card}>
             <Image source={icons.tommy} style={styles.cardimg} />
             <Text style={styles.cardtext}>Pay on Tommy Hilfiger</Text>
             <Text style={styles.cardtext}>Get up to ₹1000 Cashback</Text>
@@ -78,65 +81,60 @@ const ProfileRewards = () => {
         </View>
 
         <View>
-          <TouchableWithoutFeedback onPress={() => setVisible(false)}>
           <ModelPoup visible={visible}>
-            <View style={[styles.modelcontainer]}>
-              <View style={styles.modelheader}>
-                <TouchableOpacity onPress={() => setVisible(false)}>
-                  <Image source={icons.x} style={{height: 25, width: 25}} />
-                </TouchableOpacity>
-              </View>
-              <View
-                style={styles.topCard}>
-                <Text
-                  style={styles.offerText}>
-                  ₹1000 Off
-                </Text>
-                <Text style={{fontSize: 20, fontWeight: '400'}}>
-                  On TOMMY HILFIGER PERFUME
-                </Text>
-              </View>
-              <View
-                style={styles.reddemCode}>
-                <Text style={{fontSize: 16, padding: 15, paddingLeft: 25}}>
-                  HRTH2345..
-                </Text>
-                <TouchableOpacity>
-                  <Image
-                    source={icons.copy}
-                    style={styles.copyImg}
-                  />
-                </TouchableOpacity>
-              </View>
-            </View>
-            <View style={styles.bottomCard}>
-              <View style={{position: 'relative', alignItems: 'center'}}>
-                <View style={styles.topLine}></View>
-              </View>
-              <View
-                style={styles.tomyContainer}>
-                <Image source={icons.tomy} style={styles.tomyImg} />
-                <Text style={styles.tomyText}>TOMMY HILFIGER</Text>
-              </View>
-              <Text style={styles.description}>
-                Congrats! ₹1000 Off On TOMMY HILFIGER Perfumes
-              </Text>
-              <Text style={styles.copyCode}>Copy code and use at checout</Text>
-              <View
-                style={styles.mainRedeem}>
-                <Text style={{fontSize: 16, padding: 15, paddingLeft: 25}}>
-                  HRTH2345000369VMK
-                </Text>
-                <TouchableOpacity style={styles.copyBtn}>
-                  <Text>Copy</Text>
-                </TouchableOpacity>
-              </View>
-              <TouchableOpacity style={styles.redeemBtn}>
-                <Text style={styles.redeemText} >Redeem Now</Text>
-              </TouchableOpacity>
-            </View>
+            <TouchableOpacity onPress={() => setVisible(false)}>
+              <TouchableHighlight>
+                <View style={[styles.modelcontainer]}>
+                  <View style={styles.modelheader}>
+                    <TouchableOpacity onPress={() => setVisible(false)}>
+                      <Image source={icons.x} style={{height: 25, width: 25}} />
+                    </TouchableOpacity>
+                  </View>
+                  <View style={styles.topCard}>
+                    <Text style={styles.offerText}>₹1000 Off</Text>
+                    <Text style={{fontSize: 20, fontWeight: '400'}}>
+                      On TOMMY HILFIGER PERFUME
+                    </Text>
+                  </View>
+                  <View style={styles.reddemCode}>
+                    <Text style={{fontSize: 16, padding: 15, paddingLeft: 25}}>
+                      HRTH2345..
+                    </Text>
+                    <TouchableOpacity>
+                      <Image source={icons.copy} style={styles.copyImg} />
+                    </TouchableOpacity>
+                  </View>
+                </View> 
+                </TouchableHighlight>             
+                <View style={styles.bottomCard}>
+                  <View style={{position: 'relative', alignItems: 'center'}}>
+                    <View style={styles.topLine}></View>
+                  </View>
+                  <View style={styles.tomyContainer}>
+                    <Image source={icons.tomy} style={styles.tomyImg} />
+                    <Text style={styles.tomyText}>TOMMY HILFIGER</Text>
+                  </View>
+                  <Text style={styles.description}>
+                    Congrats! ₹1000 Off On TOMMY HILFIGER Perfumes
+                  </Text>
+                  <Text style={styles.copyCode}>
+                    Copy code and use at checout
+                  </Text>
+                  <View style={styles.mainRedeem}>
+                    <Text style={{fontSize: 16, padding: 15, paddingLeft: 25}}>
+                      HRTH2345000369VMK
+                    </Text>
+                    <TouchableOpacity style={styles.copyBtn}>
+                      <Text>Copy</Text>
+                    </TouchableOpacity>
+                  </View>
+                  <TouchableOpacity style={styles.redeemBtn}>
+                    <Text style={styles.redeemText}>Redeem Now</Text>
+                  </TouchableOpacity>
+                </View>
+              
+            </TouchableOpacity>
           </ModelPoup>
-          </TouchableWithoutFeedback>
         </View>
       </ScrollView>
     </View>
@@ -246,7 +244,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginHorizontal: 25,
     marginVertical: 15,
-    fontWeight: '500'
+    fontWeight: '500',
   },
   mainRedeem: {
     backgroundColor: '#EBEBEB',
@@ -273,10 +271,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFC901',
     padding: 10,
     marginVertical: 10,
-    borderRadius: 20
+    borderRadius: 20,
   },
   redeemText: {
     fontSize: 17,
-    fontWeight: '500'
-  }
+    fontWeight: '500',
+  },
 });

@@ -37,6 +37,8 @@ export default Email;
 const styles = StyleSheet.create({
   secondarycontainer: {
     justifyContent: 'center',
+    backgroundColor: '#FFF',
+    paddingBottom: 35,
   },
   btncontainer: {
     alignItems: 'center',
@@ -63,29 +65,31 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 10,
     flexDirection: 'row',
-    width: '90%',
+    width: '100%',
     marginTop: 15,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   inputNo: {
     fontSize: SIZES.h4,
     borderWidth: 1,
     padding: 15,
     borderRadius: 10,
-    width: '100%',
+    width: '90%',
     borderColor: 'rgba(63, 63, 63, 0.4)',
   },
   sendcontainer: {
     backgroundColor: COLORS.primary,
-    width: '83%',
+    width: '84%',
     alignItems: 'center',
     padding: 15,
     borderRadius: 10,
     marginTop: 18,
-    shadowColor: 'rgba(0, 0, 0, 0.8)',
+    shadowColor: 'rgba(0, 0, 0, 0.3)',
     shadowOffset: {width: 0, height: 4},
     shadowOpacity: 0.2,
     shadowRadius: 5,
-    elevation: 20
+    elevation: 5
   },
   send: {
     fontSize: SIZES.h4,

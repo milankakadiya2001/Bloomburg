@@ -14,7 +14,7 @@ import {useNavigation} from '@react-navigation/native';
 
 const PostScreen = () => {
   const [show, setShow] = useState(true);
-
+  <BottomSheet show={show} onDismiss={() => setShow(false)}></BottomSheet>;
   const navigation = useNavigation();
   const [visible, setVisible] = React.useState(false);
   return (
@@ -44,9 +44,8 @@ const PostScreen = () => {
                 <Image source={icons.Comment} style={styles.comment} />
               </TouchableOpacity>
               <TouchableOpacity onPress={() => setShow(true)}>
-                <Image source={icons.Share} style={styles.share} />
+                <Image source={icons.Share} style={[styles.share]} />
               </TouchableOpacity>
-              
             </View>
             <View style={styles.Othercontainer}>
               <Text style={styles.like}>1.5k</Text>
@@ -54,7 +53,6 @@ const PostScreen = () => {
               <Text style={styles.share}>1.5k</Text>
             </View>
           </View>
-
         ))}
       </View>
     </View>

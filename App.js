@@ -38,6 +38,9 @@ import OfferCard from './src/screen/RewaedsScreen/OfferCard';
 import Comments from './src/Components/Comment';
 import CommentScreen from './src/Components/Comment';
 import AddStory from './src/screen/HomeScreen/AddStory';
+import Camera from './src/screen/HomeScreen/Camera.js';
+import SignIn from './src/Components/SignIn';
+import Register from './src/Components/Register';
 
 const Stack = createNativeStackNavigator();
 
@@ -84,7 +87,10 @@ export default class App extends React.Component {
           <Stack.Screen name="Save" component={Save} />
           <Stack.Screen name="OfferCard" component={OfferCard} />
           <Stack.Screen name="CommentScreen" component={CommentScreen} />
+          <Stack.Screen name="CameraScreen" component={Camera} />
           <Stack.Screen name="AddStory" component={AddStory} />
+          <Stack.Screen name="SignIn" component={SignIn} />
+          <Stack.Screen name="Register" component={Register} />
         </Stack.Navigator>
       </NavigationContainer>
     );

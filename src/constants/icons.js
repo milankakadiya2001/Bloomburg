@@ -35,7 +35,7 @@ const levis = require('../assets/icons/levis.png');
 const tommy = require('../assets/icons/tommy.png');
 const zara = require('../assets/icons/zara.png');
 const award = require('../assets/icons/award.png');
-const Mute = require('../assets/icons/Mute.png');
+const Mute = require('../assets/icons/mte.png');
 const Report = require('../assets/icons/Report.png');
 const Block = require('../assets/icons/Block.png');
 const BloombuggLogo = require('../assets/icons/BloombuggLogo.png');
@@ -43,6 +43,10 @@ const chalangeimg = require('../assets/icons/chalangeimg.jpeg');
 const copy = require('../assets/icons/Copy.png');
 const tomy = require('../assets/icons/tomy.png');
 const plus = require('../assets/icons/Plus.png');
+const camara = require('../assets/icons/camara.png');
+const unmute = require('../assets/icons/unmute.png');
+const flash = require('../assets/icons/flash.png');
+const CameraRevers = require('../assets/icons/CameraRevers.png');
 
 export default {
   chalangeimg,
@@ -89,5 +93,9 @@ export default {
   BloombuggLogo,
   copy, 
   tomy,
-  plus
+  plus,
+  camara,
+  unmute,
+  flash,
+  CameraRevers
 };
