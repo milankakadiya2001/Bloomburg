@@ -40,7 +40,7 @@ const RewardsScreen = ({navigation}) => {
         <View style={styles.mainimg}>
           <TouchableOpacity style={{flexDirection: 'column', alignItems: 'center'}} onPress={() => navigation.navigate('OfferCard')} >
             <View style={styles.imgbox}>
-              <Image source={icons.Food} style={styles.img} />
+              <Image source={icons.cloth} style={styles.img} />
             </View>
             <Text style={styles.imgtext}>Apparels</Text>
           </TouchableOpacity>
@@ -124,8 +124,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   img: {
-    height: 140,
-    width: 140,
+    height: 100,
+    width: 100,
   },
   imgtext: {
     fontSize: 22,

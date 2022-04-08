@@ -85,11 +85,11 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 10,
     marginTop: 18,
-    shadowColor: 'rgba(0, 0, 0, 0.3)',
+    shadowColor: 'rgba(0, 0, 0, 0.8)',
     shadowOffset: {width: 0, height: 4},
     shadowOpacity: 0.2,
     shadowRadius: 5,
-    elevation: 5
+    elevation: 15
   },
   send: {
     fontSize: SIZES.h4,

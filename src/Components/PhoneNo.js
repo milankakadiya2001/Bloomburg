@@ -180,6 +180,7 @@ const styles = StyleSheet.create({
   inputphone: {
     fontSize: SIZES.h3,
     color: '#838383',
+    fontFamily: 'Quicksand-Regular'
   },
   phonecontainer: {
     flexDirection: 'row',
@@ -192,11 +193,11 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 10,
     marginTop: 10,
-    shadowColor: 'rgba(0, 0, 0, 0.3)',
+    shadowColor: 'rgba(0, 0, 0, 0.8)',
     shadowOffset: {width: 0, height: 4},
     shadowOpacity: 0.2,
     shadowRadius: 5,
-    elevation: 5,
+    elevation: 15
   },
   send: {
     fontSize: SIZES.h4,
@@ -208,6 +209,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     flex: 1,
+    fontFamily: 'Quicksand-Regular'
   },
   modelcontainer: {
     width: '90%',

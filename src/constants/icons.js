@@ -28,8 +28,9 @@ const r1 = require('../assets/icons/r1.jpg');
 const r2 = require('../assets/icons/r2.jpg');
 const r3 = require('../assets/icons/r3.jpg');
 const Gift = require('../assets/icons/gifta.png');
-const Food = require('../assets/icons/Food.png');
+const Food = require('../assets/icons/fast-food.png');
 const elec = require('../assets/icons/electronics.png');
+const cloth = require('../assets/icons/clothing.png');
 const paytm = require('../assets/icons/paytm.png');
 const levis = require('../assets/icons/levis.png');
 const tommy = require('../assets/icons/tommy.png');
@@ -97,5 +98,6 @@ export default {
   camara,
   unmute,
   flash,
-  CameraRevers
+  CameraRevers,
+  cloth
 };
