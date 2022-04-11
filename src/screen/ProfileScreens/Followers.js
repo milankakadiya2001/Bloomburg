@@ -20,11 +20,11 @@ const Tab = createMaterialTopTabNavigator();
 
 const FollowerList = () => {
  return (
-   <ScrollView  >
+   <ScrollView style={styles.root}  >
      {user.map((item, index) => (
         <View style={styles.recent}>
           <Image source={{uri: item.photo}} style={styles.img} />
-          <TouchableOpacity style={{width: 200}}>
+          <TouchableOpacity  style={{width: '55%'}}>
             <Text style={styles.title}>{item.name}</Text>
             <Text style={styles.textother}>Sent a post. 5min</Text>
           </TouchableOpacity>
@@ -41,11 +41,11 @@ const FollowerList = () => {
 
 const FollowingList = () => {
   return (
-    <ScrollView>
+    <ScrollView  style={styles.root} >
       {user.map((item, index) => (
          <View style={styles.recent}>
            <Image source={{uri: item.photo}} style={styles.img} />
-           <TouchableOpacity style={{width: 200}}>
+           <TouchableOpacity style={{width: '52%'}}>
              <Text style={styles.title}>{item.name}</Text>
              <Text style={styles.textother}>Sent a post. 5min</Text>
            </TouchableOpacity>
@@ -89,7 +89,7 @@ const Followers = ({navigation}) => {
   });
   return (
     <View>
-      <View style={{height: '100%'}}>
+      <View style={{height: '100%', backgroundColor: '#fff'}}>
                 <Tab.Navigator
                   tabBarOptions={{
                     tintColor: 'black',
@@ -123,9 +123,10 @@ const styles = StyleSheet.create({
   recent: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingLeft: 10,
+    paddingHorizontal: 5,
     paddingVertical: 8,
     borderColor: '#BBBBBB',
+    // position: 'relative'
     
   },
   img: {
@@ -143,14 +144,19 @@ const styles = StyleSheet.create({
   },
   dot: {
     flexDirection: 'row',
-    right: 2,
+    // right: 15,
     borderRadius: 10,
     borderWidth: 0.5,
     padding: 5,
-    paddingHorizontal: 11,
+    paddingHorizontal: 12,
+    // position: 'absolute'
     
   },
   remove: {
       fontSize: 13
+  },
+  root: {
+    backgroundColor: '#fff',
+    height: '100%'
   }
 });

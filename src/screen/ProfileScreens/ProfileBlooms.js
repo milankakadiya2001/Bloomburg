@@ -23,7 +23,7 @@ const ProfileBlooms = () => {
         <View>
           <View style={styles.slider}>
             <Text style={styles.font}>Energy</Text>
-            <View style={[styles.empty, {width: '73%'}]}>
+            <View style={[styles.empty]}>
               <View style={[styles.fillPart, {width: '50%'}]}>
                 <View style={styles.challangeNo}>
                   <Text style={styles.challangeText}>46</Text>
@@ -33,7 +33,7 @@ const ProfileBlooms = () => {
           </View>
           <View style={styles.slider}>
             <Text style={styles.font}>Fuel</Text>
-            <View style={[styles.empty, {width: '73%'}]}>
+            <View style={[styles.empty]}>
               <View style={[styles.fillPart, {width: '90%'}]}>
                 <View style={styles.challangeNo}>
                   <Text style={styles.challangeText}>96</Text>
@@ -43,7 +43,7 @@ const ProfileBlooms = () => {
           </View>
           <View style={styles.slider}>
             <Text style={styles.font}>Kids</Text>
-            <View style={[styles.empty, {width: '73%'}]}>
+            <View style={[styles.empty]}>
               <View style={[styles.fillPart, {width: '5%'}]}>
                 <View style={styles.challangeNo}>
                   <Text style={styles.challangeText}>5</Text>
@@ -63,7 +63,7 @@ const ProfileBlooms = () => {
           </View>
           <View style={styles.slider}>
             <Text style={styles.font}>Trees</Text>
-            <View style={[styles.empty, {width: '73%'}]}>
+            <View style={[styles.empty]}>
               <View style={[styles.fillPart, {width: '85%'}]}>
                 <View style={styles.challangeNo}>
                   <Text style={styles.challangeText}>85</Text>
@@ -73,7 +73,7 @@ const ProfileBlooms = () => {
           </View>
           <View style={styles.slider}>
             <Text style={styles.font}>Recycle</Text>
-            <View style={[styles.empty, {width: '73%'}]}>
+            <View style={[styles.empty]}>
               <View style={[styles.fillPart, {width: '75%'}]}>
                 <View style={styles.challangeNo}>
                   <Text style={styles.challangeText}>75</Text>
@@ -83,7 +83,7 @@ const ProfileBlooms = () => {
           </View>
           <View style={styles.slider}>
             <Text style={styles.font}>Water</Text>
-            <View style={[styles.empty, {width: '73%'}]}>
+            <View style={[styles.empty]}>
               <View style={[styles.fillPart, {width: '20%'}]}>
                 <View style={styles.challangeNo}>
                   <Text style={styles.challangeText}>20</Text>
@@ -178,6 +178,8 @@ const styles = StyleSheet.create({
   empty: {
     backgroundColor: '#E6E6E6',
     height: 4,
+    width: '75%',
+    marginHorizontal: 5
   },
   challangeNo: {
     height: 23,

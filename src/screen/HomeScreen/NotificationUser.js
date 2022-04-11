@@ -48,7 +48,7 @@ const NotificationUser = ({navigation}) => {
   return (
     <View style={styles.container}>
      
-      <ScrollView>
+      <ScrollView style={{height: '100%'}} >
         <View style={styles.recent}>
           <Image
             source={{
@@ -221,7 +221,7 @@ const styles = StyleSheet.create({
     marginTop: 15,
     alignItems: 'center',
     borderBottomWidth: 1,
-    paddingLeft: 10,
+    paddingHorizontal: 5,
     paddingVertical: 10,
     paddingBottom: 18,
     borderColor: '#BBBBBB',

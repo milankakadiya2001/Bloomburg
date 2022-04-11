@@ -13,8 +13,8 @@ let user = require('../screen/HomeScreen/UserList.json');
 const PostPhoto = () => {
     renderImages = item => {
       return (
-        <View style={{flex: 1, alignItems: "center", }}>
-          <Image source={{uri: item.item.postpic}} style={{height: 125,width: 125, marginTop: 5}} />
+        <View style={{flex: 1, alignItems: "center",  }}>
+          <Image source={{uri: item.item.postpic}} style={{height: 125,width: '95%', marginTop: 5}} />
         </View>
       );
     };

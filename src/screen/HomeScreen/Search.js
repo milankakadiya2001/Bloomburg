@@ -23,7 +23,7 @@ const Search = ({navigation}) => {
         shadowRadius: 5,
         
       },
-      title: 'search',
+      title: 'Search',
       headerTitleStyle: {
         fontSize: SIZES.h3,
         fontWeight: '700',

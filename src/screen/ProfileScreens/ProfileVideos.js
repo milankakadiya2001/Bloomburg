@@ -7,7 +7,7 @@ const ProfileVideos = () => {
     renderImages = item => {
       return (
         <View style={{flex: 1, alignItems: "center", }}>
-          <Image source={{uri: item.item.image}} style={{height: 215,width: 125, marginTop: 5}} />
+          <Image source={{uri: item.item.image}} style={{height: 215,width: '95%', marginTop: 5}} />
           <Text style={{position: 'absolute', bottom: 2, left: 6, color: '#FFFFFF'}} >{item.item.View}</Text>
         </View>
       );

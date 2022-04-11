@@ -263,7 +263,7 @@ const styles = StyleSheet.create({
     padding: 10,
     paddingHorizontal: 15,
     borderRadius: 20,
-    marginLeft: 18,
+    marginLeft: 25,
   },
   redeemBtn: {
     marginHorizontal: 25,
