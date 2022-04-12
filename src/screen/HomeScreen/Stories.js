@@ -1,18 +1,28 @@
-import {ScrollView, StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
-import React from 'react';
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
+import React, {useState} from 'react';
 import user from './UserList.json';
 import icons from '../../constants/icons';
 import {COLORS, FONTS} from '../../constants/theme';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 
 const Stories = () => {
-    const navigation = useNavigation(); 
+  const navigation = useNavigation();
+
   return (
     <ScrollView
       style={{flex: 1, marginVertical: 14}}
       horizontal
       showsHorizontalScrollIndicator={false}>
-      <TouchableOpacity onPress={() => navigation.navigate('AddStory')} style={[styles.storyborder, {padding: 5, marginLeft: 10}]}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('CameraScreen')}
+        style={[styles.storyborder, {padding: 5, marginLeft: 10}]}>
         <Image
           source={{uri: 'https://randomuser.me/api/portraits/med/women/3.jpg'}}
           style={styles.storyimg}
@@ -25,12 +35,21 @@ const Stories = () => {
         </View>
       </TouchableOpacity>
       {user.map((item, index) => (
-        <View style={styles.story}>
+        <TouchableOpacity
+          style={styles.story}
+          activeOpacity={0.5}
+          onPress={() =>
+            navigation.navigate('UserStoryScreen', {
+              name: item.name,
+              photo: item.photo,
+              storyPic: item.postpic,
+            })
+          }>
           <View style={[styles.storyborder, {borderWidth: 2.5}]}>
             <Image source={{uri: item.photo}} style={styles.storyimg} />
           </View>
           <Text style={styles.username}>{item.name}</Text>
-        </View>
+        </TouchableOpacity>
       ))}
     </ScrollView>
   );

@@ -41,6 +41,8 @@ import AddStory from './src/screen/HomeScreen/AddStory';
 import Camera from './src/screen/HomeScreen/Camera.js';
 import SignIn from './src/Components/SignIn';
 import Register from './src/Components/Register';
+import UserStoryScreen from './src/screen/HomeScreen/UserStoryScreen';
+import Lanch from './src/screen/HomeScreen/Lanch';
 
 const Stack = createNativeStackNavigator();
 
@@ -49,7 +51,7 @@ export default class App extends React.Component {
     return (
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: true}}>
-          <Stack.Screen
+          {/* <Stack.Screen
             name="Login"
             component={LoginScreen}
             options={{headerShown: false}}
@@ -58,7 +60,7 @@ export default class App extends React.Component {
             name="Otp"
             component={OtpScreen}
             options={{headerShown: false}}
-          />
+          /> */}
           <Stack.Screen
             name="Tab"
             component={TabNavigator}
@@ -91,6 +93,8 @@ export default class App extends React.Component {
           <Stack.Screen name="AddStory" component={AddStory} />
           <Stack.Screen name="SignIn" component={SignIn} />
           <Stack.Screen name="Register" component={Register} />
+          <Stack.Screen name="Lanch" component={Lanch} />
+          <Stack.Screen name="UserStoryScreen" component={UserStoryScreen} options={{headerShown: false}} />
         </Stack.Navigator>
       </NavigationContainer>
     );

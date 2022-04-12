@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TouchableOpacity, Image, TextInput, KeyboardAvoidingView } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, Image, TextInput, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard } from 'react-native'
 import React, {useEffect, useState} from 'react';
 import {SIZES, COLORS} from '../constants/theme';
 import icons from '../constants/icons';
@@ -33,7 +33,8 @@ const Register = ({navigation}) => {
         });
       });
   return (
-    <KeyboardAvoidingView behavior='position' >
+    <KeyboardAvoidingView behavior= 'position' >
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss} >
       <View style={styles.secondarycontainer}>
         <View style={styles.inputcontiner}>
         <View style={styles.contrycode}>
@@ -47,6 +48,13 @@ const Register = ({navigation}) => {
             <TextInput
               style={styles.inputNo}
               placeholder="Email Address"
+              placeholderTextColor="#838383"
+            />
+          </View>
+          <View style={styles.contrycode}>
+            <TextInput
+              style={styles.inputNo}
+              placeholder="Phone No."
               placeholderTextColor="#838383"
             />
           </View>
@@ -72,6 +80,7 @@ const Register = ({navigation}) => {
           </TouchableOpacity>
         </View>
       </View>
+      </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
   )
 }
@@ -89,7 +98,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: '#FFF',
         paddingBottom: -35,
-        height: '100%'
+        // height: '100%'
       },
       btncontainer: {
         alignItems: 'center',
